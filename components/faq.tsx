@@ -36,10 +36,10 @@ const FAQSection = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4 text-gray-900">
+        <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-50">
           Frequently Asked Questions
         </h2>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-slate-100/80">
           Find answers to common questions about Caresept
         </p>
       </div>
@@ -51,7 +51,7 @@ const FAQSection = () => {
             value={`item-${index}`}
             className="border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow lg:w-[60vw] xl:w-[40vw]"
           >
-            <AccordionTrigger className="px-6 py-4 text-left font-semibold">
+            <AccordionTrigger className="px-6 py-4 text-left font-semibold dark:text-black/80">
               {faq.question}
             </AccordionTrigger>
             <AccordionContent className="px-6 py-4 text-gray-600">

@@ -118,7 +118,7 @@ export default function Demo() {
               <TabsTrigger
                 key={feature.title}
                 value={feature.title}
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-4 bg-muted-foreground/10 hover:bg-muted-foreground/20 font-semibold"
               >
                 <div className="flex items-center gap-2">
                   <feature.icon className="size-5" />
