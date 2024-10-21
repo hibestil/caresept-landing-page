@@ -10,7 +10,7 @@ function RootLayout(
     { children }: Props
 ) {
   return (
-    <main className='w-full h-full'>
+    <main className='w-screen min-h-screen'>
         <Navbar />
         {children}
         <Footer />

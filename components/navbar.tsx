@@ -1,70 +1,264 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import * as React from "react"
+import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Menu, ChevronDown } from "lucide-react"
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+type NavItem = {
+  title: string
+  href: string
+  description?: string
+  subItems?: NavItem[]
+}
 
+const navItems: NavItem[] = [
+  {
+    title: "Features",
+    href: "/features",
+    description: "Explore our AI-powered CRM capabilities",
+    subItems: [
+      {
+        title: "AI-Powered Insights",
+        href: "/features/ai-insights",
+        description: "Gain actionable insights from your customer data",
+      },
+      {
+        title: "Automated Workflows",
+        href: "/features/automated-workflows",
+        description: "Streamline your sales and support processes",
+      },
+      {
+        title: "Predictive Analytics",
+        href: "/features/predictive-analytics",
+        description: "Forecast customer behavior and trends",
+      },
+      {
+        title: "Omnichannel Support",
+        href: "/features/omnichannel-support",
+        description: "Provide seamless customer experiences across all channels",
+      },
+    ],
+  },
+  {
+    title: "Solutions",
+    href: "/solutions",
+    description: "Tailored solutions for various industries",
+    subItems: [
+      {
+        title: "Healthcare",
+        href: "/solutions/healthcare",
+        description: "Improve patient care and streamline operations",
+      },
+      {
+        title: "Finance",
+        href: "/solutions/finance",
+        description: "Enhance customer relationships in the financial sector",
+      },
+      {
+        title: "Retail",
+        href: "/solutions/retail",
+        description: "Personalize shopping experiences and boost sales",
+      },
+    ],
+  },
+  {
+    title: "Pricing",
+    href: "/pricing",
+    description: "Flexible plans for businesses of all sizes",
+  },
+  {
+    title: "Resources",
+    href: "/resources",
+    description: "Guides, webinars, and best practices",
+    subItems: [
+      {
+        title: "Blog",
+        href: "/resources/blog",
+        description: "Latest insights and industry trends",
+      },
+      {
+        title: "Case Studies",
+        href: "/resources/case-studies",
+        description: "Success stories from our clients",
+      },
+      {
+        title: "Webinars",
+        href: "/resources/webinars",
+        description: "Educational sessions and product demos",
+      },
+    ],
+  },
+]
+
+export default function Navbar() {
   return (
-    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 border-border/40 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center justify-between gap-2">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground focus:outline-none md:hidden"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-            <Link href="/" className="text-primary text-2xl font-bold">
-              Caresept
-            </Link>
+    <header className="sticky top-0 z-50 w-screen bg-red-400 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center w-full">
+        <div className="mr-4 hidden md:flex">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <span className="hidden font-bold sm:inline-block">Caresept</span>
+          </Link>
+          <DesktopNav items={navItems} />
+        </div>
+        <MobileNav items={navItems} />
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            <Button variant="outline" className="w-full md:w-auto">
+              Sign In
+            </Button>
           </div>
-          <nav className="hidden space-x-4 md:flex">
-            <Link href="#features" className="text-foreground/80 hover:text-foreground">
-              Features
-            </Link>
-            <Link href="#testimonials" className="text-foreground/80 hover:text-foreground">
-              Testimonials
-            </Link>
-            <Link href="#pricing" className="text-foreground/80 hover:text-foreground">
-              Pricing
-            </Link>
-          </nav>
-          <div className="flex items-center space-x-4">
-            <Button className="bg-black/90 text-white">Get Started</Button>
-          </div>
+          <Button className="hidden md:inline-flex">Get Started</Button>
         </div>
       </div>
-      {isMenuOpen && (
-        <div className="h-4/5 md:hidden">
-          <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-            <Link
-              href="#features"
-              className="text-foreground/80 hover:text-foreground block px-3 py-2"
-            >
-              Features
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-foreground/80 hover:text-foreground block px-3 py-2"
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-foreground/80 hover:text-foreground block px-3 py-2"
-            >
-              Pricing
-            </Link>
-          </div>
-        </div>
-      )}
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+function DesktopNav({ items }: { items: NavItem[] }) {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        {items.map((item) => (
+          <NavigationMenuItem key={item.href}>
+            {item.subItems ? (
+              <>
+                <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+                <NavigationMenuContent className="">
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {item.subItems.map((subItem) => (
+                      <ListItem
+                        key={subItem.href}
+                        title={subItem.title}
+                        href={subItem.href}
+                      >
+                        {subItem.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </>
+            ) : (
+              <Link href={item.href} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {item.title}
+                </NavigationMenuLink>
+              </Link>
+            )}
+          </NavigationMenuItem>
+        ))}
+      </NavigationMenuList>
+    </NavigationMenu>
+  )
+}
+
+function MobileNav({ items }: { items: NavItem[] }) {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline" size="icon" className="mr-2 md:hidden">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle Menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+        <Link href="/" className="flex items-center space-x-2">
+          <span className="font-bold">CareAI</span>
+        </Link>
+        <nav className="mt-6 flex flex-col space-y-3">
+          <Accordion type="single" collapsible className="w-full">
+            {items.map((item, index) => (
+              <AccordionItem value={`item-${index}`} key={item.href}>
+                {item.subItems ? (
+                  <>
+                    <AccordionTrigger className="text-sm hover:no-underline">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="flex flex-col space-y-2">
+                        {item.subItems.map((subItem) => (
+                          <SheetClose asChild key={subItem.href}>
+                            <Link
+                              href={subItem.href}
+                              className="text-muted-foreground hover:text-primary"
+                            >
+                              {subItem.title}
+                            </Link>
+                          </SheetClose>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </>
+                ) : (
+                  <SheetClose asChild>
+                    <Link
+                      href={item.href}
+                      className="flex items-center justify-between py-4 text-sm hover:text-primary"
+                    >
+                      {item.title}
+                      <ChevronDown className="h-4 w-4" />
+                    </Link>
+                  </SheetClose>
+                )}
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </nav>
+        <div className="mt-6 space-y-4">
+          <Button variant="outline" className="w-full">
+            Sign In
+          </Button>
+          <Button className="w-full">Get Started</Button>
+        </div>
+      </SheetContent>
+    </Sheet>
+  )
+}
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li className="">
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/5 hover:text-primary focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-semibold leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
