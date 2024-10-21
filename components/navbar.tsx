@@ -26,6 +26,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Menu, ChevronDown } from "lucide-react"
+import { ModeToggle } from "./ui/mode-toggle"
 
 type NavItem = {
   title: string
@@ -131,6 +132,7 @@ export default function Navbar() {
             </Button>
           </div>
           <Button className="hidden md:inline-flex">Get Started</Button>
+          <ModeToggle />
         </div>
       </div>
     </header>
