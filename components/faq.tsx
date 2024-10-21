@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
 import { 
   Accordion,
   AccordionContent,
@@ -51,7 +49,7 @@ const FAQSection = () => {
           <AccordionItem 
             key={index} 
             value={`item-${index}`}
-            className="border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow"
+            className="border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow lg:w-[60vw] xl:w-[40vw]"
           >
             <AccordionTrigger className="px-6 py-4 text-left font-semibold">
               {faq.question}

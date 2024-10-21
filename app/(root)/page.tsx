@@ -1,5 +1,6 @@
 import CTA from "@/components/cta";
 import Demo from "@/components/demo";
+import FAQSection from "@/components/faq";
 import Features from "@/components/features";
 import Hero from "@/components/hero";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <Features />
       <Demo />
       <CTA />
+      <FAQSection />
     </main>
   );
 }
