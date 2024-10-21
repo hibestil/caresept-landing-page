@@ -2,12 +2,20 @@
 
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowRightIcon } from 'lucide-react';
+import AnimatedShinyText from './ui/animated-shiny-text';
+import { Cloud } from './sphere';
 
 const Hero = () => {
   return (
-    <section className="py-20 sm:py-32">
+    <section className="py-20 sm:py-32 flex items-center justify-center md:gap-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div className='flex w-full items-center justify-center py-3'>
+          <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+            <span>✨ Introducing Care AI</span>
+            <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          </AnimatedShinyText>
+        </motion.div>
         <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -47,6 +55,9 @@ const Hero = () => {
             </Button>
           </motion.div>
         </div>
+      </div>
+      <div className='hidden md:flex w-full'>
+        <Cloud />
       </div>
     </section>
   );
