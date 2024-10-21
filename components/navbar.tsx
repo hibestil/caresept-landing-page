@@ -116,11 +116,11 @@ const navItems: NavItem[] = [
 
 export default function Navbar() {
   return (
-    <header className="sticky flex items-center justify-between top-0 z-50 w-screen bg-red-400 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center w-full">
+    <nav className="sticky flex items-center justify-between top-0 z-50 lg:px-10 w-screen bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-14 items-center just w-screen">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">Caresept</span>
+            <span className="font-bold sm:inline-block text-2xl text-primary">Caresept</span>
           </Link>
           <DesktopNav items={navItems} />
         </div>
@@ -135,7 +135,7 @@ export default function Navbar() {
           <ModeToggle />
         </div>
       </div>
-    </header>
+    </nav>
   )
 }
 

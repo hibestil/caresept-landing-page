@@ -1,128 +1,173 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { CheckCircledIcon } from '@radix-ui/react-icons';
-import { cn } from '@/lib/utils';
-import { Switch } from '@/components/ui/switch';
+import React from 'react'
+import { Moon, Sun, Check, X } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { Button } from '@/components/ui/button'
+import { Switch } from '@/components/ui/switch'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+
 const plans = [
   {
-    name: 'Starter',
-    monthlyPrice: 29,
-    yearlyPrice: 290,
-    description: 'Perfect for small businesses just getting started with CRM.',
+    name: 'Basic',
+    price: {
+      monthly: 29,
+      yearly: 290,
+    },
     features: [
+      'AI-powered contact management',
+      'Basic email automation',
       'Up to 1,000 contacts',
-      'Basic AI chatbot',
-      'Email marketing',
-      'Task management',
-      '5 team members',
+      '5GB storage',
+      'Email support',
+    ],
+    notIncluded: [
+      'Advanced AI insights',
+      'Custom integrations',
+      'Dedicated account manager',
     ],
   },
   {
-    name: 'Professional',
-    monthlyPrice: 79,
-    yearlyPrice: 790,
-    description: 'Ideal for growing businesses with advanced CRM needs.',
+    name: 'Pro',
+    price: {
+      monthly: 79,
+      yearly: 790,
+    },
     features: [
-      'Up to 10,000 contacts',
-      'Advanced AI chatbot',
-      'Marketing automation',
-      'Sales forecasting',
-      'Unlimited team members',
+      'Everything in Basic, plus:',
+      'Advanced AI insights and predictions',
+      'Unlimited contacts',
+      'Custom integrations',
+      '50GB storage',
+      'Priority support',
     ],
+    notIncluded: ['Dedicated account manager'],
   },
   {
     name: 'Enterprise',
-    monthlyPrice: 199,
-    yearlyPrice: 1990,
-    description: 'For large organizations requiring powerful CRM capabilities.',
+    price: {
+      monthly: 199,
+      yearly: 1990,
+    },
     features: [
-      'Unlimited contacts',
-      'Custom AI solutions',
-      'Advanced analytics',
+      'Everything in Pro, plus:',
       'Dedicated account manager',
-      'API access',
+      'Custom AI model training',
+      'Unlimited storage',
+      'On-premise deployment option',
+      '24/7 phone and email support',
     ],
+    notIncluded: [],
   },
-];
+]
 
-const Pricing = () => {
-  const [isYearly, setIsYearly] = useState(false);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+export default function App() {
+  const [isYearly, setIsYearly] = React.useState(true)
+  const { theme, setTheme } = useTheme()
 
   return (
-    <section id="pricing" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-foreground mb-12 text-center text-3xl font-extrabold">
-            Pricing that Scales with Your Business
-          </h2>
-          <div className="mb-12 flex items-center justify-center space-x-4">
-            <span className={`text-lg ${!isYearly ? 'text-primary' : 'text-foreground/60'}`}>
-              Monthly
-            </span>
-            <Switch checked={isYearly} onChange={() => setIsYearly(!isYearly)} color="primary" />{' '}
-            {/* Updated Switch */}
-            <span className={`text-lg ${isYearly ? 'text-primary' : 'text-foreground/60'}`}>
-              Yearly (Save 20%)
-            </span>
-          </div>
-          <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {plans.map((plan, index) => (
-              <Card
-                key={plan.name}
-                className={`flex flex-col pb-5 ${index === 1 ? 'border-primary' : ''}`}
-              >
-                <CardContent>
-                  <h5>{plan.name}</h5> {/* Updated CardTitle */}
-                  <h5>{plan.description}</h5>{' '}
-                  {/* Updated CardDescription */}
-                  <div className="mb-4 text-4xl font-bold">
-                    ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                    <span className="text-foreground/60 text-lg font-normal">
-                      /{isYearly ? 'year' : 'month'}
-                    </span>
-                  </div>
-                  <ul className="space-y-2">
-                    {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-center">
-                        <CheckCircledIcon className="text-primary mr-2 size-5" />{' '}
-                        {/* You may need to replace this with an MUI icon */}
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardTitle>
-                  <Button className={cn(
-                    'w-full',
-                    index === 1 ? 'bg-primary' : 'bg-secondary',
-                    'text-white'
-                  )}>
-                    {' '}
-                    {/* Updated Button */}
-                    Get Started
-                  </Button>
-                </CardTitle>
-              </Card>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+    <div className="min-h-screen bg-background text-foreground py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-end mb-8">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-[1.2rem] w-[1.2rem]" />
+            ) : (
+              <Moon className="h-[1.2rem] w-[1.2rem]" />
+            )}
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+        </div>
 
-export default Pricing;
+        <div className="text-center">
+          <h2 className="text-3xl font-extrabold sm:text-4xl">Pricing Plans</h2>
+          <p className="mt-4 text-xl text-muted-foreground">
+            Choose the perfect plan for your business
+          </p>
+        </div>
+
+        <div className="mt-12 sm:mt-16 flex justify-center items-center space-x-4">
+          <span className="text-sm font-medium">Monthly</span>
+          <Switch
+            checked={isYearly}
+            onCheckedChange={setIsYearly}
+          />
+          <span className="text-sm font-medium">Yearly</span>
+        </div>
+
+        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+          {plans.map((plan) => (
+            <Card
+              key={plan.name}
+              className={`${
+                plan.name === 'Pro'
+                  ? 'border-primary shadow-lg'
+                  : ''
+              }`}
+            >
+              <CardHeader>
+                <CardTitle>{plan.name}</CardTitle>
+                <CardDescription>
+                  {plan.name === 'Pro' && (
+                    <span className="text-primary font-semibold">
+                      Most Popular
+                    </span>
+                  )}
+                </CardDescription>
+              </CardHeader>
+<CardContent>
+  <div className="text-4xl font-extrabold">
+    ${isYearly ? plan.price.yearly : plan.price.monthly}
+    <span className="text-xl font-normal text-muted-foreground">
+      /{isYearly ? 'year' : 'month'}
+    </span>
+  </div>
+  {/* Removed Accordion and replaced with a simple list */}
+  <div className="mt-6">
+    <h3 className="text-lg font-semibold">Features</h3>
+    <ul className="space-y-2">
+      {plan.features.map((feature) => (
+        <li key={feature} className="flex items-center space-x-2">
+          <Check className="h-5 w-5 text-primary" />
+          <span className="text-sm">{feature}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+  {plan.notIncluded.length > 0 && (
+    <div className="mt-4">
+      <h3 className="text-lg font-semibold">Not Included</h3>
+      <ul className="space-y-2">
+        {plan.notIncluded.map((feature) => (
+          <li key={feature} className="flex items-center space-x-2">
+            <X className="h-5 w-5 text-muted-foreground" />
+            <span className="text-sm">{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</CardContent>
+              <CardFooter>
+                <Button className="w-full border-primary font-bold" variant={plan.name === 'Pro' ? 'default' : 'outline'}>
+                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get started'}
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}

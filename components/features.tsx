@@ -69,10 +69,10 @@ const Features = () => {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="bg-card/50 h-full">
+                <Card className="bg-card/50 h-full shadow-lg">
                 <CardHeader>
                   <feature.icon className=" mb-4 size-8" />
-                  <h1 className=''>{feature.title}</h1>
+                  <h1 className='font-bold'>{feature.title}</h1>
                 </CardHeader>
                   <CardContent>
                     
