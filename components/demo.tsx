@@ -14,8 +14,11 @@ import {
   Shield,
   Clock,
   Zap,
+  CheckCircle,
+  Award,
 } from 'lucide-react';
 import Image from 'next/image';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 const features = [
   {
@@ -71,33 +74,17 @@ const features = [
   },
 ];
 
-const TrustIndicators = () => (
-  <div className="mt-8 flex flex-wrap justify-center gap-4">
-    {[
-      { icon: Shield, text: 'Enterprise-grade security' },
-      { icon: Clock, text: '99.9% Uptime SLA' },
-      { icon: Star, text: '4.9/5 Customer rating' },
-      { icon: Zap, text: 'Real-time updates' },
-    ].map((item, index) => (
-      <div key={index} className="bg-secondary/10 flex items-center gap-2 rounded-full px-4 py-2">
-        <item.icon className="text-primary size-4" />
-        <span className="text-sm font-medium">{item.text}</span>
-      </div>
-    ))}
-  </div>
-);
 
 const StatCard = ({ label, value }: { label: string; value: string }) => (
   <Card className="bg-white/5 backdrop-blur-sm">
     <CardContent className="p-4">
-      <div className="text-primary text-2xl font-bold">{value}</div>
+      <div className="primary-text text-2xl font-bold">{value}</div>
       <div className="text-muted-foreground text-sm">{label}</div>
     </CardContent>
   </Card>
 );
 
 export default function Demo() {
-  const [activeTab, setActiveTab] = useState('AI-Powered Customer Support');
 
   return (
     <section className="from-background to-background/80 bg-gradient-to-b px-4 py-20">
@@ -106,75 +93,11 @@ export default function Demo() {
           <Badge className="mb-4" variant="secondary">
             Product Demo
           </Badge>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight">Experience the Future of CRM</h2>
+          <h2 className="mb-4 text-4xl font-bold tracking-tight primary-text">Experience the Demo which is more real than Reality</h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-            See how Caresept transforms customer relationships with AI-powered intelligence
+            See how Caresept transforms customer relationships with AI-powered intelligence, and state-of-the-art Tech
           </p>
         </div>
-
-        <Tabs defaultValue={activeTab} className="space-y-8" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-1 gap-4 bg-transparent md:grid-cols-3">
-            {features.map((feature) => (
-              <TabsTrigger
-                key={feature.title}
-                value={feature.title}
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-4 bg-muted-foreground/10 hover:bg-muted-foreground/20 font-semibold"
-              >
-                <div className="flex items-center gap-2">
-                  <feature.icon className="size-5" />
-                  <span>{feature.title}</span>
-                </div>
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {features.map((feature) => (
-            <TabsContent key={feature.title} value={feature.title} className="space-y-8">
-              <div className="grid items-start gap-8 md:grid-cols-2">
-                <div className="space-y-6">
-                  <h3 className="text-3xl font-bold">{feature.title}</h3>
-                  <p className="text-muted-foreground text-lg">{feature.content}</p>
-
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    {feature.stats.map((stat, index) => (
-                      <StatCard key={index} {...stat} />
-                    ))}
-                  </div>
-
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">Key Benefits</h4>
-                    <ul className="grid grid-cols-2 gap-3">
-                      {feature.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <ArrowRight className="text-primary size-4" />
-                          <span className="text-sm">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button className="mt-4">
-                    Schedule Demo
-                    <ArrowRight className="ml-2 size-4" />
-                  </Button>
-                </div>
-
-                <div className="from-primary/10 to-primary/5 relative flex aspect-video items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br">
-                  <div className="absolute inset-0 backdrop-blur-sm"></div>
-                  <Image
-                    src="/api/placeholder/800/600"
-                    alt="Feature preview"
-                    className="relative z-10 size-4/5 rounded-lg object-cover shadow-2xl"
-                    width={400}
-                    height={200}
-                  />
-                </div>
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        <TrustIndicators />
       </div>
     </section>
   );
