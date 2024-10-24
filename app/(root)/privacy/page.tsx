@@ -9,10 +9,10 @@ const CosmicCTA = () => {
       {/* Radial gradient background */}
       <div className="absolute inset-0">
         {/* Main radial gradient */}
-        <div className="absolute inset-0 bg-gradient-radial from-purple-600 via-indigo-800 to-black opacity-80" />
+        <div className="absolute inset-0 bg-gradient-radial from-sky-600 via-blue-800 to-blue-900 opacity-80" />
 
         {/* Central glow effect */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-20 animate-pulse" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" />
 
         {/* Multiple blurry orbs with radial gradients */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] animate-cosmic">
@@ -20,11 +20,11 @@ const CosmicCTA = () => {
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] animate-cosmic-delayed">
-          <div className="absolute inset-0 bg-gradient-radial from-purple-500 via-transparent to-transparent rounded-full blur-2xl opacity-20" />
+          <div className="absolute inset-0 bg-gradient-radial from-blue-500 via-transparent to-transparent rounded-full blur-2xl opacity-20" />
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] animate-cosmic-reverse">
-          <div className="absolute inset-0 bg-gradient-radial from-pink-500 via-transparent to-transparent rounded-full blur-2xl opacity-25" />
+          <div className="absolute inset-0 bg-gradient-radial from-sky-500 via-transparent to-transparent rounded-full blur-2xl opacity-25" />
         </div>
       </div>
 
@@ -38,7 +38,7 @@ const CosmicCTA = () => {
             Join thousands of innovators who are already shaping the future. Don&apos;t miss out on
             this transformative journey.
           </p>
-          <Button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 text-lg px-8 py-6 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+          <Button className="bg-gradient-to-r from-blue-500 to-sky-500 text-white hover:from-blue-600 hover:to-indigo-600 text-lg px-8 py-6 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(18,85,247,0.5)]">
             Get Started Now
           </Button>
         </div>
