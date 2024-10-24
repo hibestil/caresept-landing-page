@@ -107,11 +107,11 @@ export default function BentoFeatures() {
     <section className="relative w-full flex flex-col items-center justify-center gap-8 px-4 mt-5 lg:mt-10">
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Main center radial gradient for depth */}
-        <div className="absolute w-[600px] h-[600px] bg-gradient-radial from-purple-600 via-fuchsia-600 to-pink-500 rounded-full blur-4xl opacity-50 animate-slow-pulse"></div>
+        <div className="absolute w-[600px] h-[600px] bg-gradient-radial from-purple-600 via-blue-600 to-pink-500 rounded-full blur-4xl opacity-50 animate-slow-pulse"></div>
 
         {/* Floating orbs with smooth movements */}
         <div className="absolute w-[320px] h-[320px] bg-gradient-radial from-blue-300 to-purple-400 rounded-full blur-3xl opacity-40 animate-floating-orb1"></div>
-        <div className="absolute w-[270px] h-[270px] bg-gradient-radial from-fuchsia-300 to-pink-300 rounded-full blur-3xl opacity-40 animate-floating-orb2"></div>
+        <div className="absolute w-[270px] h-[270px] bg-gradient-radial from-blue-300 to-pink-300 rounded-full blur-3xl opacity-40 animate-floating-orb2"></div>
         <div className="absolute w-[370px] h-[370px] bg-gradient-radial from-pink-300 to-rose-300 rounded-full blur-3xl opacity-40 animate-floating-orb3"></div>
       </div>
 

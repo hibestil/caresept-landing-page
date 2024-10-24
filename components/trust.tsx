@@ -49,7 +49,7 @@ const TrustIndicators = () => {
       text: 'Real-time updates',
       description: 'Average response time under 100ms',
       stat: '<100ms',
-      color: 'text-fuchsia-600',
+      color: 'text-blue-600',
     },
     {
       icon: Users,

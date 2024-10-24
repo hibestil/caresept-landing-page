@@ -161,7 +161,7 @@ function DesktopNav({ items }: { items: NavItem[] }) {
                         href={subItem.href}
                         className={cn(
                           pathname === subItem.href &&
-                            'bg-gradient-to-br from-violet-600/20 via-fuchsia-600/20 to-pink-600/20'
+                            'bg-gradient-to-br from-indigo-600/20 via-blue-600/20 to-sky-600/20'
                         )}
                       >
                         {subItem.description}
@@ -196,7 +196,7 @@ function MobileNav({ items }: { items: NavItem[] }) {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon" className="m-2 px-2 md:hidden">
-          <Menu className="h-7 w-7 text-fuchsia-600" />
+          <Menu className="h-7 w-7 text-blue-600" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
@@ -275,7 +275,7 @@ function MobileNav({ items }: { items: NavItem[] }) {
 
           <div className="border-t p-4 space-y-3 mt-auto">
             <Button className="w-full primary-gradient">Get Started</Button>
-            <Button variant="outline" className="w-full text-fuchsia-600">
+            <Button variant="outline" className="w-full text-blue-600">
               Contact Sales
             </Button>
           </div>
@@ -293,7 +293,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
           <a
             ref={ref}
             className={cn(
-              'group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gradient-to-br from-violet-600/10 via-fuchsia-600/10 to-pink-600/10 focus:bg-accent focus:text-accent-foreground',
+              'group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gradient-to-br from-violet-600/10 via-blue-600/10 to-pink-600/10 focus:bg-accent focus:text-accent-foreground',
               className
             )}
             {...props}
@@ -301,7 +301,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
             <div className="text-sm font-semibold leading-none group-hover:primary-text">
               {title}
             </div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-fuchsia-600/60">
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground group-hover:text-blue-600/60">
               {children}
             </p>
           </a>
