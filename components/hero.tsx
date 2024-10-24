@@ -29,7 +29,7 @@ const Hero = () => {
 
   return (
     <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-20  lg:pt-32 bg-transparent">
-      <Meteors number={50} />
+      <Meteors number={10} />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
