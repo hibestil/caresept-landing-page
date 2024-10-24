@@ -116,9 +116,7 @@ export default function Navbar() {
       <div className="flex h-14 items-center just w-screen px-2">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="primary-gradient bg-clip-text text-transparent font-bold sm:inline-block text-2xl">
-              Caresept
-            </span>
+            <Image src="/caresept-e.svg" alt="CareAI" width={100} height={45} />
           </Link>
           <DesktopNav items={navItems} />
         </div>

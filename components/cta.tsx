@@ -20,9 +20,9 @@ export default function Component() {
   useEffect(() => {
     controls.start({
       background: [
-        'linear-gradient(45deg, #4a0e8f, #7e1fd3)',
-        'linear-gradient(45deg, #7e1fd3, #b32fd7)',
-        'linear-gradient(45deg, #b32fd7, #4a0e8f)',
+        'linear-gradient(45deg, #1165e5, #1e3a8a)', // Royal blue to a darker shade of blue
+        'linear-gradient(45deg, #1e3a8a, #5f99f7)', // Darker shade to a lighter blue
+        'linear-gradient(45deg, #5f99f7, #2b6cb0)', // Lighter blue to a medium shade of blue
       ],
       transition: { duration: 10, repeat: Infinity, ease: 'linear' },
     });

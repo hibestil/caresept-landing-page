@@ -45,7 +45,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
+            className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
           >
             <Cover className="">Seamless</Cover> Customer Relationship Management
           </motion.h1>
@@ -66,7 +66,7 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="group w-full bg-gradient-to-r from-purple-600 to-pink-600 text-lg font-semibold text-white transition-all hover:from-purple-700 hover:to-pink-700 sm:w-auto"
+              className="group w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-lg font-semibold text-white transition-all hover:from-blue-600 hover:to-blue-700 sm:w-auto"
             >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
