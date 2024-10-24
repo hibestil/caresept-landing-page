@@ -1,3 +1,5 @@
+'use client';
+
 import Action from "@/components/action";
 import CaresptBeam from "@/components/beam-connect";
 import Connect from "@/components/connect";
@@ -8,15 +10,21 @@ import Features from "@/components/features";
 import Hero from "@/components/hero";
 import { Cloud } from "@/components/sphere";
 import TrustIndicators from "@/components/trust";
+import BentoFeatures, { BentoDemo } from "@/components/ui/bento";
+import Chatbot from "@/components/ui/chatbot";
+import Integration from "@/components/ui/integration";
 import WorkflowBuilder from "@/components/workflow";
 
 
 export default function Home() {
   return (
-    <main className="w-screen min-h-screen flex flex-col items-center justify-center">
+    <main className="min-h-screen flex flex-col">
       <Hero />
       <Demo />
+      <Chatbot />
       <WorkflowBuilder />
+      <Integration />
+      <BentoFeatures />
       <TrustIndicators />
       <Connect />
       <Action />

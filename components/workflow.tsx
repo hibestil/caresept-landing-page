@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PlusCircle, ArrowRight, Workflow, Bot, Mail, Database, RefreshCw, LucideProps, Smile } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 const WorkflowBuilder = () => {
   const [nodes, setNodes] = useState([
@@ -25,6 +26,10 @@ const WorkflowBuilder = () => {
   };
 
   return (
+    <section className='w-full flex flex-col md:flex-row  items-center justify-around lg:px-10 bg-gradient-to-br from-purple-100 via-fuchsia-100 to-pink-300 lg:py-20'>
+      <div className='w-[40%] '>
+        <Image src="/workflow.jpg" width={400} height={300} alt="Workflow" className='w-full h-full rounded-l-xl'/>
+      </div>
     <div className="w-full max-w-4xl mx-auto p-6">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold mb-2 primary-text">Build AI Workflows in Minutes</h2>
@@ -85,6 +90,7 @@ const WorkflowBuilder = () => {
         }
       `}</style>
     </div>
+    </section>
   );
 };
 

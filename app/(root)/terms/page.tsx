@@ -1,147 +1,142 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere } from "@react-three/drei";
-import { Brain, Workflow, Zap, ArrowRight, Bot } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import { 
+  Bot, 
+  Calendar, 
+  MessageSquare, 
+  Settings2, 
+  Workflow, 
+  Users2,
+  ArrowRight,
+  Boxes,
+  RefreshCw,
+  MessagesSquare
+} from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import WorkflowAnimation from "@/components/WorkflowAnimation";
-import { FloatingNodes } from "@/components/FloatingNode";
-import IntegrationBeams from "@/components/IntegrationBeams";
+import { useEffect, useState } from "react";
 
-export default function Home() {
+const features = [
+  {
+    icon: <Bot className="w-10 h-10 text-blue-500" />,
+    title: "AI-Powered Automation",
+    description: "Smart workflows and automated processes tailored to your business needs",
+    delay: 0.1
+  },
+  {
+    icon: <Boxes className="w-10 h-10 text-purple-500" />,
+    title: "Custom Modules",
+    description: "Highly customized modules designed specifically for your industry",
+    delay: 0.2
+  },
+  {
+    icon: <RefreshCw className="w-10 h-10 text-green-500" />,
+    title: "Seamless Integration",
+    description: "Connect with your favorite work apps and CRM systems effortlessly",
+    delay: 0.3
+  },
+  {
+    icon: <Workflow className="w-10 h-10 text-orange-500" />,
+    title: "Smart Workflows",
+    description: "AI-enabled workflow design that adapts to your business processes",
+    delay: 0.4
+  },
+  {
+    icon: <MessagesSquare className="w-10 h-10 text-pink-500" />,
+    title: "User Chat Management",
+    description: "Intelligent chat system with AI-powered responses and user tracking",
+    delay: 0.5
+  },
+  {
+    icon: <Calendar className="w-10 h-10 text-indigo-500" />,
+    title: "AI Appointment Scheduling",
+    description: "Smart scheduling system that learns from your preferences",
+    delay: 0.6
+  }
+];
+
+export default function Demo() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background to-secondary overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
-        {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <FloatingNodes />
-        </div>
+    <section ref={ref} className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Experience the Future of CRM
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Discover how Caresept transforms your business with AI-powered features and seamless integrations
+          </p>
+        </motion.div>
 
-        {/* Hero Content */}
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-              AI-Powered Workflow
-              <br />
-              Made Simple
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Transform your business processes with intelligent automation that learns and adapts to your needs.
-            </p>
-            <div className="flex gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Get Started <ArrowRight className="ml-2" />
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                Watch Demo
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4">Intelligent Workflow Creation</h2>
-            <p className="text-xl text-muted-foreground">
-              Build complex workflows with drag-and-drop simplicity
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Brain,
-                title: "AI-Powered",
-                description: "Smart suggestions and automated optimizations for your workflows",
-              },
-              {
-                icon: Workflow,
-                title: "Visual Builder",
-                description: "Intuitive drag-and-drop interface for creating complex workflows",
-              },
-              {
-                icon: Bot,
-                title: "Automation",
-                description: "Automate repetitive tasks with intelligent robots",
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="p-6 rounded-2xl bg-card hover:bg-card/80 transition-colors"
-              >
-                <feature.icon className="w-12 h-12 mb-4 text-primary" />
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Integration Demo Section */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Seamless Integrations</h2>
-            <p className="text-xl text-muted-foreground">
-              Connect with your favorite tools in minutes
-            </p>
-          </div>
-          <IntegrationBeams />
-        </div>
-      </section>
-
-      {/* Workflow Demo Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex-1"
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: feature.delay }}
             >
-              <h2 className="text-4xl font-bold mb-6">
-                Watch Your Workflows Come to Life
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                See how easy it is to create, modify, and optimize your business processes with our intuitive workflow builder.
-              </p>
-              <Button size="lg">
-                Try It Now <Zap className="ml-2" />
-              </Button>
+              <Card className="p-6 h-full hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800 border-none">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                    {feature.description}
+                  </p>
+                  <Button
+                    variant="ghost"
+                    className="group text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 p-0"
+                  >
+                    Learn more
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
+              </Card>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex-1"
-            >
-              <div className="relative aspect-video rounded-xl overflow-hidden border border-border">
-                <WorkflowAnimation />
-              </div>
-            </motion.div>
-          </div>
+          ))}
         </div>
-      </section>
-    </main>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-16 text-center"
+        >
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+          >
+            Schedule a Demo
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </motion.div>
+      </div>
+    </section>
   );
 }

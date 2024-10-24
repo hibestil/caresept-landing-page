@@ -68,7 +68,7 @@ const TrustIndicators = () => {
   
     return (
       <TooltipProvider>
-        <div className="w-full py-8">
+        <div className="w-full py-8 lg:mt-10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-4">
               <h3 className="text-3xl font-bold mb-2  primary-text">
@@ -77,7 +77,7 @@ const TrustIndicators = () => {
               <p className="text-gray-700/60">Join thousands of companies building with confidence</p>
             </div>
   
-        <div className='flex items-center justify-around'>
+        <div className='flex items-center justify-around mb-4'>
             <Image src="/image1.png" width={140} height={100} alt="Brand 1" />
             <Image src="/image2.png" width={140} height={100} alt="Brand 2" />
             <Image src="/image3.png" width={120} height={100} alt="Brand 3" />
