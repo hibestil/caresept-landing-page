@@ -10,32 +10,32 @@ const FAQSection = () => {
     {
       question: 'What is Caresept?',
       answer:
-        'Caresept is an innovative healthcare platform that connects patients with qualified healthcare providers, streamlining the process of finding and booking medical appointments while ensuring the highest standards of care.',
+        'Caresept is a cutting-edge, AI-powered CRM system designed to simplify and enhance your business processes. We offer highly customizable modules, seamless integration with 10+ applications, and powerful workflow automations to make customer relationship management more efficient and user-friendly.',
     },
     {
-      question: 'How do I schedule an appointment?',
+      question: 'How can Caresept improve my business?',
       answer:
-        "Scheduling an appointment is easy! Simply log into your account, browse available healthcare providers, select your preferred time slot, and confirm your booking. You'll receive an immediate confirmation via email or SMS.",
+        'Caresept empowers your team by automating repetitive tasks, streamlining communications, and providing deep insights through AI-driven analytics. With customizable workflows and powerful integrations, Caresept makes managing customer relationships, tracking performance, and scaling operations easier than ever.',
     },
     {
-      question: 'Is my medical information secure?',
+      question: 'What integrations does Caresept offer?',
       answer:
-        'Absolutely! We take your privacy seriously. Caresept employs state-of-the-art encryption and security measures to protect your personal and medical information, complying with all HIPAA regulations and healthcare data protection standards.',
+        'Caresept integrates with over 10 popular apps and platforms, including WhatsApp, Facebook, Google Drive, email, and more. These integrations allow you to unify your communications and workflows across multiple platforms, increasing efficiency and collaboration.',
     },
     {
-      question: 'What types of healthcare providers are available?',
+      question: 'Can I customize workflows in Caresept?',
       answer:
-        'Caresept partners with a wide range of healthcare professionals including primary care physicians, specialists, mental health professionals, and more. All providers are thoroughly vetted and must maintain current licenses and credentials.',
+        'Absolutely! Caresept provides robust customization options for workflows to suit your unique business processes. From automated lead nurturing to post-sales support, you can tailor workflows to meet the needs of your team and customers.',
     },
     {
-      question: 'How can I cancel or reschedule an appointment?',
+      question: 'How secure is Caresept?',
       answer:
-        "You can easily modify your appointments through your user dashboard. We request at least 24 hours notice for cancellations or rescheduling to respect our healthcare providers' time.",
+        'Security is our top priority. Caresept employs industry-standard encryption and security protocols to ensure that your data is safe. We follow best practices for data privacy and protection, giving you peace of mind when managing sensitive customer information.',
     },
     {
-      question: 'Do you accept insurance?',
+      question: 'What kind of support does Caresept provide?',
       answer:
-        'Yes, Caresept works with most major insurance providers. You can verify your insurance coverage during the booking process or contact our support team for specific insurance-related questions.',
+        'We offer comprehensive support, including onboarding assistance, documentation, and customer service. Whether you need help with setting up integrations or customizing your CRM, our dedicated team is here to assist you every step of the way.',
     },
   ];
 
@@ -44,7 +44,7 @@ const FAQSection = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4  primary-text">Frequently Asked Questions</h2>
         <p className="text-gray-600 dark:text-slate-100/80">
-          Find answers to common questions about Caresept
+          Find answers to common questions about Caresept&apos;s AI-powered CRM system
         </p>
       </div>
 
