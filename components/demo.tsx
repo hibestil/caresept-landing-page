@@ -4,18 +4,8 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
-  MessageSquare,
-  BarChart2,
-  Users,
   ArrowRight,
-  Star,
-  Shield,
-  Clock,
-  Zap,
-  CheckCircle,
-  Award,
   Bot,
   Boxes,
   RefreshCw,
@@ -65,15 +55,6 @@ const features = [
   },
 ];
 
-const StatCard = ({ label, value }: { label: string; value: string }) => (
-  <Card className="bg-white/5 backdrop-blur-sm">
-    <CardContent className="p-4">
-      <div className="primary-text text-2xl font-bold">{value}</div>
-      <div className="text-muted-foreground text-sm">{label}</div>
-    </CardContent>
-  </Card>
-);
-
 export default function Demo() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   useEffect(() => {
@@ -94,7 +75,7 @@ export default function Demo() {
   });
 
   return (
-    <section className="from-background to-background/80 bg-gradient-to-b px-4 py-20">
+    <section className=" px-4 py-12">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <Badge className="mb-4" variant="secondary">
@@ -109,7 +90,16 @@ export default function Demo() {
           </p>
         </div>
 
-        <section ref={ref} className="py-20 ">
+        <section ref={ref} className="py-20 relative">
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Main center gradient */}
+            <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-500 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+
+            {/* Floating orbs that create flowing effect */}
+            <div className="absolute w-[300px] h-[300px] bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl opacity-30 animate-blob1"></div>
+            <div className="absolute w-[250px] h-[250px] bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl opacity-30 animate-blob2"></div>
+            <div className="absolute w-[350px] h-[350px] bg-gradient-to-r from-sky-200 to-sky-200 rounded-full blur-3xl opacity-30 animate-blob3"></div>
+          </div>
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
@@ -138,21 +128,6 @@ export default function Demo() {
                 </motion.div>
               ))}
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-16 text-center"
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-              >
-                Schedule a Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </motion.div>
           </div>
         </section>
       </div>

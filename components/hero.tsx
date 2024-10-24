@@ -3,13 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import {
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react';
+import { ArrowRight, ArrowRightIcon, Sparkles } from 'lucide-react';
 
 import { Cover } from '@/components/ui/cover';
 import HeroVideoDialog from './ui/hero-video-dialog';
+import AnimatedShinyText from './ui/animated-shiny-text';
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -35,10 +33,10 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="mb-8 flex items-center justify-center"
         >
-          <span className="inline-flex items-center rounded-fullpx-4 py-1.5 text-sm font-medium text-white shadow-lg">
-            <Sparkles className="mr-1.5 h-4 w-4" />
-            Introducing Care AI
-          </span>
+          <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-blue-600 hover:duration-300">
+            <span>✨ Introducing Magic UI</span>
+            <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          </AnimatedShinyText>
         </motion.div>
         <div className="text-center">
           <motion.h1

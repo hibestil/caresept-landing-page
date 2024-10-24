@@ -42,7 +42,7 @@ const TrustIndicators = () => {
       text: 'Customer satisfaction',
       description: 'Based on 10,000+ customer reviews',
       stat: '4.9/5',
-      color: 'text-pink-600',
+      color: 'text-blue-600',
     },
     {
       icon: Zap,
@@ -72,10 +72,7 @@ const TrustIndicators = () => {
       <div className="w-full py-8 lg:mt-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4">
-            <ShineBorder
-             className='shine w-full'
-             color={'blue'}
-            >
+            <ShineBorder className="shine w-full" color={'blue'}>
               <h3 className="text-3xl font-bold mb-2  primary-text">Trusted by Industry Leaders</h3>
             </ShineBorder>
             <p className="text-gray-700/60">Join thousands of companies building with confidence</p>

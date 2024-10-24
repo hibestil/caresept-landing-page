@@ -69,7 +69,6 @@ body {
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -88,7 +87,7 @@ body {
     @apply primary-gradient bg-clip-text text-transparent;
   }
   .shine {
-    @apply text-center text-2xl font-bold capitalize w-full flex items-center justify-center
+    @apply text-center text-2xl font-bold capitalize w-full flex items-center justify-center;
   }
 
   @keyframes blob1 {
@@ -224,5 +223,4 @@ body {
   .animate-floating-orb3 {
     animation: floating-orb3 9s ease-in-out infinite;
   }
-  
 }

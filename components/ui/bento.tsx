@@ -116,15 +116,11 @@ export default function BentoFeatures() {
       </div>
 
       {/* Heading with subtle gradient text */}
-      <ShineBorder
-       className='shine w-full lg:px-12'
-        color={'blue'}
-      >
-        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-400 lg:my-5">
+      <ShineBorder className="shine w-full lg:px-12" color={'blue'}>
+        <h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-400 lg:my-5">
           All-in-one platform for your business, customer, and team.
         </h1>
       </ShineBorder>
-      
 
       <div className="w-full px-5 lg:px-32">
         <BentoDemo />

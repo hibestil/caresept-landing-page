@@ -13,7 +13,7 @@ import Gmail from '@/public/icons/gmail.svg';
 import Shopify from '@/public/icons/shopify.svg';
 import Slack from '@/public/icons/slack.svg';
 import ShineBorder from './shine-border';
-import Caresept from '@/public/caresept-e.svg'
+import Caresept from '@/public/caresept-e.svg';
 import { useTheme } from 'next-themes';
 import React from 'react';
 
@@ -23,7 +23,7 @@ export default function Integration() {
       <div className="w-full h-full flex items-center justify-center  px-3 lg:px-16">
         <ShineBorder
           className="text-center text-2xl font-bold capitalize w-full flex items-center justify-center"
-          color={'fuchsia'}
+          color={'blue'}
         >
           <h1 className="primary-text">Integrate with your favorite tools in seconds</h1>
         </ShineBorder>
@@ -39,7 +39,7 @@ function Orbit() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden h-full z-30">
       <Card className="flex items-center justify-center p-4 rounded-full shadow-primary">
-        <Image src={Caresept} alt="Carespt Beam" className='w-20'/>
+        <Image src={Caresept} alt="Carespt Beam" className="w-20" />
       </Card>
 
       {/* Inner Circles */}

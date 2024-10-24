@@ -125,11 +125,7 @@ export default function Navbar() {
           <Image src="/caresept-e.svg" alt="CareAI" width={100} height={45} />
         </Link>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <Button
-            className="md:inline-flex hidden text-fuchsia-600"
-            size={'lg'}
-            variant={'outline'}
-          >
+          <Button className="md:inline-flex hidden text-blue-600" size={'lg'} variant={'outline'}>
             Contact Sales
           </Button>
           <Button className="md:inline-flex primary-gradient" size={'lg'}>
