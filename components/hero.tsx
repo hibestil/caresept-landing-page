@@ -27,7 +27,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-32 bg-transparent">
+    <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-20  lg:pt-32 bg-transparent">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -52,7 +52,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
+            className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-3xl md:text-4xl lg:text-7xl"
           >
             <Cover className="">Seamless</Cover> Customer Relationship Management
           </motion.h1>
@@ -60,7 +60,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mt-6 max-w-2xl text-lg text-gray-700 sm:text-xl md:text-xl"
+            className="mx-auto mt-6 max-w-2xl text-lg text-gray-700 sm:text-md md:text-xl"
           >
             Caresept revolutionizes CRM with cutting-edge AI, intelligent chatbots, and seamless
             workflow automation. Experience the future of customer management today.

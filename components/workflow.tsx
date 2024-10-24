@@ -50,7 +50,7 @@ const WorkflowBuilder = () => {
         alt="Workflow Automation"
         width={500}
         height={500}
-        className="hidden md:block rounded-l-xl"
+        className="md:block md:rounded-l-xl"
       />
       <div className="w-full m-0 ">
         <div className="text-center mb-8">
@@ -88,7 +88,7 @@ const WorkflowBuilder = () => {
         </Card>
 
         {/* Available Components */}
-        <div className="grid grid-cols-2  md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2  md:grid-cols-4 gap-4 px-3 mb-4">
           {nodeTypes.map((type) => (
             <Card
               key={type.label}

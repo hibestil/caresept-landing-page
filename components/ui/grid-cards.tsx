@@ -26,8 +26,20 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 
+type CardProps = {
+  id: number;
+  title: string;
+  description: string;
+  badge: string;
+  rating: string;
+  features: string[];
+  icon: any;
+  integrations: string;
+  imagePath: string;
+};
+
 const GridCards = () => {
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState<CardProps | null>(null);
   const [likedCards, setLikedCards] = useState(new Set());
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
@@ -99,12 +111,12 @@ const GridCards = () => {
     },
   ];
 
-  const handleTouchStart = (e: { touches: { clientX: React.SetStateAction<number> }[] }) => {
+  const handleTouchStart = (e: any) => {
     setTouchStart(e.touches[0].clientX);
     setIsSwiping(true);
   };
 
-  const handleTouchMove = (e: { touches: { clientX: number }[] }) => {
+  const handleTouchMove = (e: any) => {
     if (!isSwiping) return;
 
     const touchEnd = e.touches[0].clientX;
