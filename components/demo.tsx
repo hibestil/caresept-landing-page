@@ -75,30 +75,30 @@ export default function Demo() {
   });
 
   return (
-    <section className=" px-4 py-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center">
-          <Badge className="mb-4" variant="secondary">
-            Product Demo
-          </Badge>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight primary-text">
-            Experience the Demo which is more real than Reality
-          </h2>
-          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-            See how Caresept transforms customer relationships with AI-powered intelligence, and
-            state-of-the-art Tech
-          </p>
+    <section className=" md:px-4 py-12">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* Main center gradient */}
+          <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-500 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+
+          {/* Floating orbs that create flowing effect */}
+          <div className="absolute w-[300px] h-[300px] bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl opacity-30 animate-blob1"></div>
+          <div className="absolute w-[250px] h-[250px] bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl opacity-30 animate-blob2"></div>
+          <div className="absolute w-[350px] h-[350px] bg-gradient-to-r from-sky-200 to-sky-200 rounded-full blur-3xl opacity-30 animate-blob3"></div>
         </div>
 
         <section ref={ref} className="py-20 relative">
-          <div className="absolute inset-0 flex items-center justify-center">
-            {/* Main center gradient */}
-            <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-500 rounded-full blur-3xl opacity-40 animate-pulse"></div>
-
-            {/* Floating orbs that create flowing effect */}
-            <div className="absolute w-[300px] h-[300px] bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl opacity-30 animate-blob1"></div>
-            <div className="absolute w-[250px] h-[250px] bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl opacity-30 animate-blob2"></div>
-            <div className="absolute w-[350px] h-[350px] bg-gradient-to-r from-sky-200 to-sky-200 rounded-full blur-3xl opacity-30 animate-blob3"></div>
+          <div className="mb-12 text-center">
+            <Badge className="mb-4" variant="secondary">
+              Product Demo
+            </Badge>
+            <h2 className="mb-4 text-4xl font-bold tracking-tight primary-text">
+              Experience the Demo which is more real than Reality
+            </h2>
+            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
+              See how Caresept transforms customer relationships with AI-powered intelligence, and
+              state-of-the-art Tech
+            </p>
           </div>
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

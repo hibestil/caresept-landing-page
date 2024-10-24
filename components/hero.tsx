@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight, ArrowRightIcon, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowRightIcon, ChevronRight, Sparkles } from 'lucide-react';
 
 import { Cover } from '@/components/ui/cover';
 import HeroVideoDialog from './ui/hero-video-dialog';
 import AnimatedShinyText from './ui/animated-shiny-text';
+import AnimatedGradientText from './ui/animated-gradient-text';
+import { cn } from '@/lib/utils';
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -25,7 +27,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-purple-50 via-white to-pink-50 pt-32">
+    <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-32 bg-transparent">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -33,10 +35,17 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="mb-8 flex items-center justify-center"
         >
-          <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-blue-600 hover:duration-300">
-            <span>✨ Introducing Magic UI</span>
-            <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-          </AnimatedShinyText>
+          <AnimatedGradientText>
+            🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
+            <span
+              className={cn(
+                `inline animate-gradient bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              )}
+            >
+              Launching Caresept 1.0
+            </span>
+            <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          </AnimatedGradientText>
         </motion.div>
         <div className="text-center">
           <motion.h1

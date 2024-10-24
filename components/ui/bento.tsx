@@ -58,9 +58,7 @@ const features = [
     href: '#',
     cta: 'Learn more',
     className: 'col-span-3 lg:col-span-2',
-    background: (
-      <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
-    ),
+    background: <></>,
   },
   {
     Icon: Share2Icon,
@@ -86,7 +84,7 @@ const features = [
         alt="AI Event Scheduling"
         width={400}
         height={400}
-        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        className="object-cover transition-transform duration-300 group-hover:scale-[1.02] "
       />
     ),
   },
@@ -104,7 +102,7 @@ export function BentoDemo() {
 
 export default function BentoFeatures() {
   return (
-    <section className="relative w-full flex flex-col items-center justify-center gap-8 px-4 mt-5 lg:mt-10">
+    <section className="relative w-screen flex flex-col items-center justify-center gap-8 px-4 mt-5 lg:mt-10">
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Main center radial gradient for depth */}
         <div className="absolute w-[600px] h-[600px] bg-gradient-radial from-purple-600 via-blue-600 to-pink-500 rounded-full blur-4xl opacity-50 animate-slow-pulse"></div>

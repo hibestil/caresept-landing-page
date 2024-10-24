@@ -100,7 +100,6 @@ const Footer = () => {
           <p className="text-foreground/60 text-center text-sm mt-4">
             &copy; 2024 Caresept. All rights reserved.
           </p>
-          <ModeToggle />
         </div>
       </div>
     </footer>

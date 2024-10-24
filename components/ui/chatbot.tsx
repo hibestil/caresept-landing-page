@@ -110,7 +110,7 @@ const EnhancedChatbot = () => {
   };
 
   return (
-    <section className="relative w-full py-24 overflow-hidden bg-gradient-to-b from-background to-muted">
+    <section className="relative w-full py-16 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={controls}

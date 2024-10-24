@@ -28,7 +28,7 @@ export function ChatBubble({ message, isBot = false, delay = 0 }: ChatBubbleProp
         </div>
       )}
       {!isBot && (
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white z-30 shadow-lg">
+        <div className="flex items-center justify-center min-w-8 h-8 rounded-full bg-primary text-white z-30 shadow-lg">
           <PersonIcon />
         </div>
       )}

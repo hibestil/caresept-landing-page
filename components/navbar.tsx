@@ -204,7 +204,7 @@ function MobileNav({ items }: { items: NavItem[] }) {
         side="left"
         className="w-[300px] sm:w-[400px] flex flex-col items-start justify-between p-0"
       >
-        <div className="flex flex-col w-full h-full">
+        <div className="flex flex-col w-full max-h-screen">
           <div className="p-4 border-b">
             <Link href="/" className="flex items-center space-x-2">
               <Image src="/caresept-e.svg" alt="CareAI" width={100} height={45} />
@@ -221,7 +221,7 @@ function MobileNav({ items }: { items: NavItem[] }) {
                         <AccordionTrigger
                           className={cn(
                             'py-4 text-base hover:no-underline ',
-                            pathname.startsWith(item.href) && 'primary-text font-medium font-bold'
+                            pathname.startsWith(item.href) && 'primary-text font-bold'
                           )}
                         >
                           {item.title}

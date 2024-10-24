@@ -79,9 +79,27 @@ const TrustIndicators = () => {
           </div>
 
           <div className="flex items-center justify-around mb-4">
-            <Image src="/image1.png" width={140} height={100} alt="Brand 1" />
-            <Image src="/image2.png" width={140} height={100} alt="Brand 2" />
-            <Image src="/image3.png" width={120} height={100} alt="Brand 3" />
+            <Image
+              src="/image1.png"
+              width={140}
+              height={100}
+              alt="Brand 1"
+              className="w-[90px] lg:w-[140px]"
+            />
+            <Image
+              src="/image2.png"
+              width={140}
+              height={100}
+              alt="Brand 2"
+              className="w-[90px] lg:w-[140px]"
+            />
+            <Image
+              src="/image3.png"
+              width={120}
+              height={100}
+              alt="Brand 3"
+              className="w-[90px] lg:w-[140px]"
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {indicators.map((item, index) => (
@@ -131,7 +149,7 @@ const TrustIndicators = () => {
           </div>
 
           {/* Bottom certification badges */}
-          <div className="flex justify-center items-center gap-6 mt-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 justify-center items-center gap-6 mt-8">
             {['SOC2', 'ISO 27001', 'GDPR', 'HIPAA'].map((cert, index) => (
               <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
                 <CheckCircle className="size-4 text-primary" />
