@@ -1,37 +1,37 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks"
-  ],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     // TypeScript rules
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-empty-function": "off",
-    
+
     // React rules
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    
+
     // Animation and style related rules
     "react/no-unknown-property": ["error", { "ignore": ["css"] }],
     "react/jsx-key": "warn",
-    
+
     // General rules for better DX
     "no-console": "warn",
     "no-unused-vars": "off", // Using TypeScript's version instead
     "no-undef": "off", // TypeScript handles this
-    
-    // React Hooks rules
+
+    // React Hooks rules (these are already included in next/core-web-vitals)
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+
+    // Prettier rules
+    "prettier/prettier": "warn"
   },
   "settings": {
     "react": {

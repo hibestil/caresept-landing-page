@@ -12,7 +12,6 @@ body {
   }
 }
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -91,117 +90,148 @@ body {
 
 @layer components {
   .primary-gradient {
-   @apply bg-gradient-to-br from-purple-600 via-fuchsia-600 to-pink-600;
+    @apply bg-gradient-to-br from-purple-600 via-fuchsia-600 to-pink-600;
   }
 
   .primary-text {
     @apply primary-gradient bg-clip-text text-transparent;
   }
+  .shine {
+    @apply text-center text-2xl font-bold capitalize w-full flex items-center justify-center
+  }
 
   @keyframes blob1 {
-    0% { transform: translate(-100px, -100px) scale(1); }
-    33% { transform: translate(100px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 100px) scale(0.9); }
-    100% { transform: translate(-100px, -100px) scale(1); }
+    0% {
+      transform: translate(-100px, -100px) scale(1);
+    }
+    33% {
+      transform: translate(100px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 100px) scale(0.9);
+    }
+    100% {
+      transform: translate(-100px, -100px) scale(1);
+    }
   }
-  
+
   @keyframes blob2 {
-    0% { transform: translate(100px, 50px) scale(1.1); }
-    33% { transform: translate(-50px, 100px) scale(1); }
-    66% { transform: translate(100px, -50px) scale(0.9); }
-    100% { transform: translate(100px, 50px) scale(1.1); }
+    0% {
+      transform: translate(100px, 50px) scale(1.1);
+    }
+    33% {
+      transform: translate(-50px, 100px) scale(1);
+    }
+    66% {
+      transform: translate(100px, -50px) scale(0.9);
+    }
+    100% {
+      transform: translate(100px, 50px) scale(1.1);
+    }
   }
-  
+
   @keyframes blob3 {
-    0% { transform: translate(50px, 100px) scale(0.9); }
-    33% { transform: translate(-100px, -50px) scale(1.1); }
-    66% { transform: translate(100px, 50px) scale(1); }
-    100% { transform: translate(50px, 100px) scale(0.9); }
+    0% {
+      transform: translate(50px, 100px) scale(0.9);
+    }
+    33% {
+      transform: translate(-100px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(100px, 50px) scale(1);
+    }
+    100% {
+      transform: translate(50px, 100px) scale(0.9);
+    }
   }
-  
+
   .animate-blob1 {
     animation: blob1 20s infinite linear;
   }
-  
+
   .animate-blob2 {
     animation: blob2 25s infinite linear;
   }
-  
+
   .animate-blob3 {
     animation: blob3 30s infinite linear;
   }
 
   /* Add this to your CSS file */
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
-.animate-gradient {
-  background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff7e5f);
-  background-size: 400% 400%;
-  animation: gradient-animation 15s ease infinite;
-}
-
-@keyframes slow-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.5;
+  .animate-gradient {
+    background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff7e5f);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.7;
+
+  @keyframes slow-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
   }
-}
 
-@keyframes floating-orb1 {
-  0%, 100% {
-    transform: translate(0, 0);
+  @keyframes floating-orb1 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(20px, -30px);
+    }
   }
-  50% {
-    transform: translate(20px, -30px);
+
+  @keyframes floating-orb2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-15px, 25px);
+    }
   }
-}
 
-@keyframes floating-orb2 {
-  0%, 100% {
-    transform: translate(0, 0);
+  @keyframes floating-orb3 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(25px, -15px);
+    }
   }
-  50% {
-    transform: translate(-15px, 25px);
+
+  .animate-slow-pulse {
+    animation: slow-pulse 6s ease-in-out infinite;
   }
-}
 
-@keyframes floating-orb3 {
-  0%, 100% {
-    transform: translate(0, 0);
+  .animate-floating-orb1 {
+    animation: floating-orb1 8s ease-in-out infinite;
   }
-  50% {
-    transform: translate(25px, -15px);
+
+  .animate-floating-orb2 {
+    animation: floating-orb2 7s ease-in-out infinite;
   }
-}
 
-.animate-slow-pulse {
-  animation: slow-pulse 6s ease-in-out infinite;
-}
-
-.animate-floating-orb1 {
-  animation: floating-orb1 8s ease-in-out infinite;
-}
-
-.animate-floating-orb2 {
-  animation: floating-orb2 7s ease-in-out infinite;
-}
-
-.animate-floating-orb3 {
-  animation: floating-orb3 9s ease-in-out infinite;
-}
-
+  .animate-floating-orb3 {
+    animation: floating-orb3 9s ease-in-out infinite;
+  }
+  
 }

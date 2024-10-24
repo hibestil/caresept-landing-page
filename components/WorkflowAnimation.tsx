@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const WorkflowAnimation = () => {
   const [step, setStep] = useState(0);
@@ -15,10 +15,10 @@ const WorkflowAnimation = () => {
   }, []);
 
   const nodes = [
-    { id: 1, label: "Start", x: 50, y: 50 },
-    { id: 2, label: "Process", x: 200, y: 50 },
-    { id: 3, label: "Decision", x: 350, y: 50 },
-    { id: 4, label: "End", x: 500, y: 50 },
+    { id: 1, label: 'Start', x: 50, y: 50 },
+    { id: 2, label: 'Process', x: 200, y: 50 },
+    { id: 3, label: 'Decision', x: 350, y: 50 },
+    { id: 4, label: 'End', x: 500, y: 50 },
   ];
 
   const connections = [
@@ -39,7 +39,7 @@ const WorkflowAnimation = () => {
             <motion.path
               key={`${from.id}-${to.id}`}
               d={`M ${from.x + 60} ${from.y + 30} L ${to.x} ${to.y + 30}`}
-              stroke={step >= index ? "hsl(var(--primary))" : "hsl(var(--muted))"}
+              stroke={step >= index ? 'hsl(var(--primary))' : 'hsl(var(--muted))'}
               strokeWidth="2"
               fill="none"
               initial={{ pathLength: 0 }}
@@ -53,9 +53,9 @@ const WorkflowAnimation = () => {
           <motion.g
             key={node.id}
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
+            animate={{
               opacity: step >= index ? 1 : 0.5,
-              scale: step >= index ? 1 : 0.8
+              scale: step >= index ? 1 : 0.8,
             }}
             transition={{ duration: 0.3, delay: index * 0.2 }}
           >
@@ -65,7 +65,7 @@ const WorkflowAnimation = () => {
               width="120"
               height="60"
               rx="8"
-              fill={step >= index ? "hsl(var(--primary))" : "hsl(var(--muted))"}
+              fill={step >= index ? 'hsl(var(--primary))' : 'hsl(var(--muted))'}
               className="shadow-lg"
             />
             <text

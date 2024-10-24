@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { Moon, Sun, Check, X } from 'lucide-react'
-import { useTheme } from 'next-themes'
-import { Button } from '@/components/ui/button'
-import { Switch } from '@/components/ui/switch'
+import React from 'react';
+import { Moon, Sun, Check, X } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
 import {
   Card,
   CardContent,
@@ -12,7 +12,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
+} from '@/components/ui/card';
 
 const plans = [
   {
@@ -28,11 +28,7 @@ const plans = [
       '5GB storage',
       'Email support',
     ],
-    notIncluded: [
-      'Advanced AI insights',
-      'Custom integrations',
-      'Dedicated account manager',
-    ],
+    notIncluded: ['Advanced AI insights', 'Custom integrations', 'Dedicated account manager'],
   },
   {
     name: 'Pro',
@@ -66,11 +62,11 @@ const plans = [
     ],
     notIncluded: [],
   },
-]
+];
 
 export default function App() {
-  const [isYearly, setIsYearly] = React.useState(true)
-  const { theme, setTheme } = useTheme()
+  const [isYearly, setIsYearly] = React.useState(true);
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="min-h-screen bg-background text-foreground py-16 px-4 sm:px-6 lg:px-8">
@@ -99,10 +95,7 @@ export default function App() {
 
         <div className="mt-12 sm:mt-16 flex justify-center items-center space-x-4">
           <span className="text-sm font-medium">Monthly</span>
-          <Switch
-            checked={isYearly}
-            onCheckedChange={setIsYearly}
-          />
+          <Switch checked={isYearly} onCheckedChange={setIsYearly} />
           <span className="text-sm font-medium">Yearly</span>
         </div>
 
@@ -110,57 +103,54 @@ export default function App() {
           {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`${
-                plan.name === 'Pro'
-                  ? 'border-primary shadow-lg'
-                  : ''
-              }`}
+              className={`${plan.name === 'Pro' ? 'border-primary shadow-lg' : ''}`}
             >
               <CardHeader>
                 <CardTitle>{plan.name}</CardTitle>
                 <CardDescription>
                   {plan.name === 'Pro' && (
-                    <span className="text-primary font-semibold">
-                      Most Popular
-                    </span>
+                    <span className="text-primary font-semibold">Most Popular</span>
                   )}
                 </CardDescription>
               </CardHeader>
-<CardContent>
-  <div className="text-4xl font-extrabold">
-    ${isYearly ? plan.price.yearly : plan.price.monthly}
-    <span className="text-xl font-normal text-muted-foreground">
-      /{isYearly ? 'year' : 'month'}
-    </span>
-  </div>
-  {/* Removed Accordion and replaced with a simple list */}
-  <div className="mt-6">
-    <h3 className="text-lg font-semibold">Features</h3>
-    <ul className="space-y-2">
-      {plan.features.map((feature) => (
-        <li key={feature} className="flex items-center space-x-2">
-          <Check className="h-5 w-5 text-primary" />
-          <span className="text-sm">{feature}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-  {plan.notIncluded.length > 0 && (
-    <div className="mt-4">
-      <h3 className="text-lg font-semibold">Not Included</h3>
-      <ul className="space-y-2">
-        {plan.notIncluded.map((feature) => (
-          <li key={feature} className="flex items-center space-x-2">
-            <X className="h-5 w-5 text-muted-foreground" />
-            <span className="text-sm">{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )}
-</CardContent>
+              <CardContent>
+                <div className="text-4xl font-extrabold">
+                  ${isYearly ? plan.price.yearly : plan.price.monthly}
+                  <span className="text-xl font-normal text-muted-foreground">
+                    /{isYearly ? 'year' : 'month'}
+                  </span>
+                </div>
+                {/* Removed Accordion and replaced with a simple list */}
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold">Features</h3>
+                  <ul className="space-y-2">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-center space-x-2">
+                        <Check className="h-5 w-5 text-primary" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {plan.notIncluded.length > 0 && (
+                  <div className="mt-4">
+                    <h3 className="text-lg font-semibold">Not Included</h3>
+                    <ul className="space-y-2">
+                      {plan.notIncluded.map((feature) => (
+                        <li key={feature} className="flex items-center space-x-2">
+                          <X className="h-5 w-5 text-muted-foreground" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </CardContent>
               <CardFooter>
-                <Button className="w-full border-primary font-bold" variant={plan.name === 'Pro' ? 'default' : 'outline'}>
+                <Button
+                  className="w-full border-primary font-bold"
+                  variant={plan.name === 'Pro' ? 'default' : 'outline'}
+                >
                   {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get started'}
                 </Button>
               </CardFooter>
@@ -169,5 +159,5 @@ export default function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }

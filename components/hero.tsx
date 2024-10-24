@@ -3,12 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight, Sparkles, CheckCircle, Users, Lock, BarChart3, GitGraph, MessageSquare, Brain } from 'lucide-react';
-import { Canvas } from '@react-three/fiber';
-import { Cover } from "@/components/ui/cover";
-import TrustIndicators from './trust';
-import HeroVideoDialog from './ui/hero-video-dialog';
+import {
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
 
+import { Cover } from '@/components/ui/cover';
+import HeroVideoDialog from './ui/hero-video-dialog';
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -27,7 +28,6 @@ const Hero = () => {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-purple-50 via-white to-pink-50 pt-32">
-     
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -35,7 +35,7 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="mb-8 flex items-center justify-center"
         >
-          <span className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1.5 text-sm font-medium text-white shadow-lg">
+          <span className="inline-flex items-center rounded-fullpx-4 py-1.5 text-sm font-medium text-white shadow-lg">
             <Sparkles className="mr-1.5 h-4 w-4" />
             Introducing Care AI
           </span>
@@ -47,7 +47,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            <Cover className=''>Seamless</Cover> Customer Relationship Management
+            <Cover className="">Seamless</Cover> Customer Relationship Management
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -81,9 +81,9 @@ const Hero = () => {
             </Button>
           </motion.div>
         </div>
-        
-        <div className='w-full flex flex-col items-center justify-center mt-10 lg:mt-16'>
-          <h4 className='text-primary/70 font-semibold mb-5'>See a real demo to Visualise</h4>
+
+        <div className="w-full flex flex-col items-center justify-center mt-10 lg:mt-16">
+          <h4 className="text-primary/70 font-semibold mb-5">See a real demo to Visualise</h4>
           <HeroVideoDialog
             className="dark:hidden block lg:max-w-[70%]"
             animationStyle="from-center"

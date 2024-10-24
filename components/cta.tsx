@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export default function Component() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const controls = useAnimation()
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const controls = useAnimation();
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     controls.start({
@@ -24,15 +24,12 @@ export default function Component() {
         'linear-gradient(45deg, #7e1fd3, #b32fd7)',
         'linear-gradient(45deg, #b32fd7, #4a0e8f)',
       ],
-      transition: { duration: 10, repeat: Infinity, ease: 'linear' }
-    })
-  }, [controls])
+      transition: { duration: 10, repeat: Infinity, ease: 'linear' },
+    });
+  }, [controls]);
 
   return (
-    <motion.section
-      className="relative overflow-hidden py-24 w-full text-white"
-      animate={controls}
-    >
+    <motion.section className="relative overflow-hidden py-24 w-full text-white" animate={controls}>
       <div className="absolute inset-0 z-0">
         {[...Array(50)].map((_, i) => (
           <motion.div
@@ -68,8 +65,8 @@ export default function Component() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Join the elite businesses that have revolutionized their CRM with Caresept.
-            Experience the power of advanced AI in transforming your customer interactions.
+            Join the elite businesses that have revolutionized their CRM with Caresept. Experience
+            the power of advanced AI in transforming your customer interactions.
           </motion.p>
           <motion.div
             className="mx-auto mt-12 flex max-w-md flex-col items-center justify-center gap-6 sm:flex-row"
@@ -96,5 +93,5 @@ export default function Component() {
         </div>
       </div>
     </motion.section>
-  )
+  );
 }

@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
 import { Book, Timer, Bell } from 'lucide-react';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 
 const DocsComingSoon = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e: { preventDefault: () => void; }) => {
+  const handleSubscribe = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Here you would typically handle the subscription logic
     setIsSubscribed(true);
@@ -18,17 +18,17 @@ const DocsComingSoon = () => {
 
   const features = [
     {
-      title: "Comprehensive API Documentation",
-      description: "Detailed guides and references for integrating with our healthcare platform"
+      title: 'Comprehensive API Documentation',
+      description: 'Detailed guides and references for integrating with our healthcare platform',
     },
     {
-      title: "Interactive Examples",
-      description: "Live code samples and implementation guides for common use cases"
+      title: 'Interactive Examples',
+      description: 'Live code samples and implementation guides for common use cases',
     },
     {
-      title: "Best Practices",
-      description: "Security guidelines and optimization techniques for healthcare applications"
-    }
+      title: 'Best Practices',
+      description: 'Security guidelines and optimization techniques for healthcare applications',
+    },
   ];
 
   return (
@@ -39,11 +39,10 @@ const DocsComingSoon = () => {
           <div className="flex justify-center mb-6">
             <Book className="h-16 w-16 text-blue-600" />
           </div>
-          <h1 className="text-4xl font-bold mb-4">
-            Documentation Coming Soon
-          </h1>
+          <h1 className="text-4xl font-bold mb-4">Documentation Coming Soon</h1>
           <p className="text-xl text-gray-600 mb-8">
-            We&apos;re working hard to create comprehensive documentation for Caresept&apos;s healthcare platform.
+            We&apos;re working hard to create comprehensive documentation for Caresept&apos;s
+            healthcare platform.
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
             <Timer className="h-4 w-4" />
@@ -67,7 +66,7 @@ const DocsComingSoon = () => {
             <Bell className="h-5 w-5 text-blue-600 mr-2" />
             <h2 className="text-lg font-semibold">Get Notified When We Launch</h2>
           </div>
-          
+
           {isSubscribed ? (
             <div className="bg-green-50 text-green-700 p-4 rounded-lg">
               Thanks for subscribing! We&apos;ll notify you when the documentation launches.
@@ -83,9 +82,7 @@ const DocsComingSoon = () => {
                   required
                   className="flex-1"
                 />
-                <Button type="submit">
-                  Notify Me
-                </Button>
+                <Button type="submit">Notify Me</Button>
               </div>
               <p className="text-sm text-gray-500">
                 We&apos;ll only notify you when the documentation is ready.

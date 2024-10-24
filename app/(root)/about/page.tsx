@@ -1,104 +1,95 @@
-
-
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Globe,
-  Users,
-  Heart,
-  Award,
-  CheckCircle,
-  Activity,
-} from "lucide-react";
+import { Card, CardContent } from '@/components/ui/card';
+import { Globe, Users, Heart, Award, CheckCircle, Activity } from 'lucide-react';
 
 const AboutPage = () => {
   const stats = [
     {
-      number: "500K+",
-      label: "Active Users",
+      number: '500K+',
+      label: 'Active Users',
       icon: <Users className="h-6 w-6 text-blue-500" />,
     },
     {
-      number: "10K+",
-      label: "Healthcare Providers",
+      number: '10K+',
+      label: 'Healthcare Providers',
       icon: <Heart className="h-6 w-6 text-blue-500" />,
     },
     {
-      number: "50+",
-      label: "Cities Covered",
+      number: '50+',
+      label: 'Cities Covered',
       icon: <Globe className="h-6 w-6 text-blue-500" />,
     },
     {
-      number: "98%",
-      label: "Patient Satisfaction",
+      number: '98%',
+      label: 'Patient Satisfaction',
       icon: <CheckCircle className="h-6 w-6 text-blue-500" />,
     },
   ];
 
   const timeline = [
     {
-      year: "2020",
-      title: "The Beginning",
-      description: "Caresept was founded with a vision to revolutionize healthcare accessibility.",
+      year: '2020',
+      title: 'The Beginning',
+      description: 'Caresept was founded with a vision to revolutionize healthcare accessibility.',
     },
     {
-      year: "2021",
-      title: "Rapid Growth",
-      description: "Expanded to 20 major cities and secured Series A funding.",
+      year: '2021',
+      title: 'Rapid Growth',
+      description: 'Expanded to 20 major cities and secured Series A funding.',
     },
     {
-      year: "2022",
-      title: "Technology Innovation",
-      description: "Launched AI-powered matching system and telemedicine platform.",
+      year: '2022',
+      title: 'Technology Innovation',
+      description: 'Launched AI-powered matching system and telemedicine platform.',
     },
     {
-      year: "2023",
-      title: "Market Leader",
-      description: "Became the fastest-growing healthcare platform in the region.",
+      year: '2023',
+      title: 'Market Leader',
+      description: 'Became the fastest-growing healthcare platform in the region.',
     },
   ];
 
   const team = [
     {
-      name: "Dr. Sarah Johnson",
-      role: "Chief Executive Officer",
-      bio: "Former Stanford Medical Director with 15+ years of healthcare innovation experience.",
-      image: "/api/placeholder/400/400",
+      name: 'Dr. Sarah Johnson',
+      role: 'Chief Executive Officer',
+      bio: 'Former Stanford Medical Director with 15+ years of healthcare innovation experience.',
+      image: '/api/placeholder/400/400',
     },
     {
-      name: "Michael Chen",
-      role: "Chief Technology Officer",
-      bio: "Ex-Google engineer passionate about applying AI to healthcare challenges.",
-      image: "/api/placeholder/400/400",
+      name: 'Michael Chen',
+      role: 'Chief Technology Officer',
+      bio: 'Ex-Google engineer passionate about applying AI to healthcare challenges.',
+      image: '/api/placeholder/400/400',
     },
     {
-      name: "Dr. James Wilson",
-      role: "Chief Medical Officer",
-      bio: "Board-certified physician with expertise in digital health transformation.",
-      image: "/api/placeholder/400/400",
+      name: 'Dr. James Wilson',
+      role: 'Chief Medical Officer',
+      bio: 'Board-certified physician with expertise in digital health transformation.',
+      image: '/api/placeholder/400/400',
     },
     {
-      name: "Emma Rodriguez",
-      role: "Chief Operations Officer",
-      bio: "Healthcare operations expert with experience scaling digital health startups.",
-      image: "/api/placeholder/400/400",
+      name: 'Emma Rodriguez',
+      role: 'Chief Operations Officer',
+      bio: 'Healthcare operations expert with experience scaling digital health startups.',
+      image: '/api/placeholder/400/400',
     },
   ];
 
   const values = [
     {
       icon: <Heart className="h-8 w-8 text-blue-500" />,
-      title: "Patient-First Approach",
-      description: "Every decision we make starts with patient well-being in mind.",
+      title: 'Patient-First Approach',
+      description: 'Every decision we make starts with patient well-being in mind.',
     },
     {
       icon: <Award className="h-8 w-8 text-blue-500" />,
-      title: "Excellence in Care",
-      description: "We maintain the highest standards in healthcare service delivery.",
+      title: 'Excellence in Care',
+      description: 'We maintain the highest standards in healthcare service delivery.',
     },
     {
       icon: <Activity className="h-8 w-8 text-blue-500" />,
-      title: "Innovation",
-      description: "Continuously improving healthcare through technology and research.",
+      title: 'Innovation',
+      description: 'Continuously improving healthcare through technology and research.',
     },
   ];
 
@@ -108,9 +99,7 @@ const AboutPage = () => {
       <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Transforming Healthcare Access
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Transforming Healthcare Access</h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
               We&apos;re on a mission to make quality healthcare accessible to everyone through
               innovative technology and compassionate care.
@@ -169,11 +158,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                />
+                <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
                 <CardContent className="p-6">
                   <h3 className="font-bold text-lg mb-1">{member.name}</h3>
                   <p className="text-blue-600 text-sm mb-3">{member.role}</p>

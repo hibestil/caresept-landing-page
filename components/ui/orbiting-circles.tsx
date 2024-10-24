@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { Card } from "./card";
+import { cn } from '@/lib/utils';
+import { Card } from './card';
 
 export interface OrbitingCirclesProps {
   className?: string;
@@ -41,15 +41,15 @@ export default function OrbitingCircles({
       <Card
         style={
           {
-            "--duration": duration,
-            "--radius": radius,
-            "--delay": -delay,
+            '--duration': duration,
+            '--radius': radius,
+            '--delay': -delay,
           } as React.CSSProperties
         }
         className={cn(
-          "absolute flex size-full transform-gpu animate-orbit items-center justify-center rounded-full border  [animation-delay:calc(var(--delay)*1000ms)] hover:z-50 ",
-          { "[animation-direction:reverse]": reverse },
-          className,
+          'absolute flex size-full transform-gpu animate-orbit items-center justify-center rounded-full border  [animation-delay:calc(var(--delay)*1000ms)] hover:z-50 ',
+          { '[animation-direction:reverse]': reverse },
+          className
         )}
       >
         {children}

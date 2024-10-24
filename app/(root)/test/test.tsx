@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere } from "@react-three/drei";
-import { Brain, Workflow, Zap, ArrowRight, Bot } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import WorkflowAnimation from "@/components/WorkflowAnimation";
-import { FloatingNodes } from "@/components/FloatingNode";
-import IntegrationBeams from "@/components/IntegrationBeams";
+import { motion } from 'framer-motion';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Sphere } from '@react-three/drei';
+import { Brain, Workflow, Zap, ArrowRight, Bot } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import WorkflowAnimation from '@/components/WorkflowAnimation';
+import { FloatingNodes } from '@/components/FloatingNode';
+import IntegrationBeams from '@/components/IntegrationBeams';
 
 export default function Home() {
   return (
@@ -33,7 +33,8 @@ export default function Home() {
               Made Simple
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Transform your business processes with intelligent automation that learns and adapts to your needs.
+              Transform your business processes with intelligent automation that learns and adapts
+              to your needs.
             </p>
             <div className="flex gap-4 justify-center">
               <Button size="lg" className="text-lg px-8">
@@ -66,18 +67,18 @@ export default function Home() {
             {[
               {
                 icon: Brain,
-                title: "AI-Powered",
-                description: "Smart suggestions and automated optimizations for your workflows",
+                title: 'AI-Powered',
+                description: 'Smart suggestions and automated optimizations for your workflows',
               },
               {
                 icon: Workflow,
-                title: "Visual Builder",
-                description: "Intuitive drag-and-drop interface for creating complex workflows",
+                title: 'Visual Builder',
+                description: 'Intuitive drag-and-drop interface for creating complex workflows',
               },
               {
                 icon: Bot,
-                title: "Automation",
-                description: "Automate repetitive tasks with intelligent robots",
+                title: 'Automation',
+                description: 'Automate repetitive tasks with intelligent robots',
               },
             ].map((feature, index) => (
               <motion.div
@@ -119,11 +120,10 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="flex-1"
             >
-              <h2 className="text-4xl font-bold mb-6">
-                Watch Your Workflows Come to Life
-              </h2>
+              <h2 className="text-4xl font-bold mb-6">Watch Your Workflows Come to Life</h2>
               <p className="text-xl text-muted-foreground mb-8">
-                See how easy it is to create, modify, and optimize your business processes with our intuitive workflow builder.
+                See how easy it is to create, modify, and optimize your business processes with our
+                intuitive workflow builder.
               </p>
               <Button size="lg">
                 Try It Now <Zap className="ml-2" />

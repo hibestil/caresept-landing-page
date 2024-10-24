@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LinkedInLogoIcon, TwitterLogoIcon, InstagramLogoIcon} from '@radix-ui/react-icons';
+import { LinkedInLogoIcon, TwitterLogoIcon, InstagramLogoIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import { ModeToggle } from './ui/mode-toggle';
 
@@ -9,12 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div>
-            <Image
-             src={'/caresept-e.svg'}
-             alt='image'
-             width={100}
-              height={100}
-              />
+            <Image src={'/caresept-e.svg'} alt="image" width={100} height={100} />
           </div>
           <div>
             <h3 className="text-foreground mb-4 text-lg font-semibold">Product</h3>
@@ -56,7 +51,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/contact" className="text-foreground/60 hover:text-foreground">
-                   Contact Us
+                  Contact Us
                 </Link>
               </li>
               <li>

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Connect() {
-  return (
-    <section className='w-full flex flex-col items-center justify-center'>
-        
-    </section>
-  )
+  return <section className="w-full flex flex-col items-center justify-center"></section>;
 }
 
-export default Connect
+export default Connect;

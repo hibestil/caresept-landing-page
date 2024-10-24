@@ -1,12 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Companies() {
-  
-  return (
-    <section>
-
-    </section>
-  )
+  return <section></section>;
 }
 
-export default Companies
+export default Companies;
