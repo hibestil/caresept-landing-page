@@ -1,104 +1,19 @@
-'use client';
 
+import BackgroundBeams from '@/components/ui/background-lines';
 import React from 'react';
-import { Button } from '@/components/ui/button';
 
-const CosmicCTA = () => {
+function Test() {
   return (
-    <div className="relative min-h-[400px] w-full overflow-hidden flex items-center justify-center bg-black">
-      {/* Radial gradient background */}
-      <div className="absolute inset-0">
-        {/* Main radial gradient */}
-        <div className="absolute inset-0 bg-gradient-radial from-sky-600 via-blue-800 to-blue-900 opacity-80" />
-
-        {/* Central glow effect */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" />
-
-        {/* Multiple blurry orbs with radial gradients */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] animate-cosmic">
-          <div className="absolute inset-0 bg-gradient-radial from-blue-500 via-transparent to-transparent rounded-full blur-2xl opacity-30" />
-        </div>
-
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] animate-cosmic-delayed">
-          <div className="absolute inset-0 bg-gradient-radial from-blue-500 via-transparent to-transparent rounded-full blur-2xl opacity-20" />
-        </div>
-
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] animate-cosmic-reverse">
-          <div className="absolute inset-0 bg-gradient-radial from-sky-500 via-transparent to-transparent rounded-full blur-2xl opacity-25" />
-        </div>
-      </div>
-
-      {/* Content container with enhanced glow */}
-      <div className="relative z-10 text-center p-8 max-w-2xl">
-        <div className="relative">
-          <h2 className="text-5xl font-bold mb-6 text-white tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-purple-200">
-            Explore the Universe of Possibilities
-          </h2>
-          <p className="text-xl mb-12 text-gray-200">
-            Join thousands of innovators who are already shaping the future. Don&apos;t miss out on
-            this transformative journey.
-          </p>
-          <Button className="bg-gradient-to-r from-blue-500 to-sky-500 text-white hover:from-blue-600 hover:to-indigo-600 text-lg px-8 py-6 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(18,85,247,0.5)]">
-            Get Started Now
-          </Button>
-        </div>
-      </div>
-      {/* Custom keyframes animation styles */}
-      <style>{`
-        @keyframes cosmic {
-          0% {
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-          }
-          33% {
-            transform: translate(-50%, -50%) scale(1.1) rotate(120deg);
-          }
-          66% {
-            transform: translate(-50%, -50%) scale(0.9) rotate(240deg);
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(1) rotate(360deg);
-          }
-        }
-        @keyframes cosmic-delayed {
-          0% {
-            transform: translate(-50%, -50%) scale(0.9) rotate(0deg);
-          }
-          33% {
-            transform: translate(-50%, -50%) scale(1.1) rotate(-120deg);
-          }
-          66% {
-            transform: translate(-50%, -50%) scale(1) rotate(-240deg);
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(0.9) rotate(-360deg);
-          }
-        }
-        @keyframes cosmic-reverse {
-          0% {
-            transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
-          }
-          33% {
-            transform: translate(-50%, -50%) scale(0.9) rotate(120deg);
-          }
-          66% {
-            transform: translate(-50%, -50%) scale(1) rotate(240deg);
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(1.1) rotate(360deg);
-          }
-        }
-        .animate-cosmic {
-          animation: cosmic 20s infinite ease-in-out;
-        }
-        .animate-cosmic-delayed {
-          animation: cosmic-delayed 25s infinite ease-in-out;
-        }
-        .animate-cosmic-reverse {
-          animation: cosmic-reverse 30s infinite ease-in-out;
-        }
-      `}</style>
-    </div>
+    <BackgroundBeams>
+      <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+        Sanjana Airlines, <br /> Sajana Textiles.
+      </h2>
+      <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
+        Get the best advices from our experts, including expert artists, painters, marathon
+        enthusiasts and RDX, totally free.
+      </p>
+    </BackgroundBeams>
   );
-};
+}
 
-export default CosmicCTA;
+export default Test;

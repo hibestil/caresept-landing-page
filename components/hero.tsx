@@ -10,6 +10,7 @@ import HeroVideoDialog from './ui/hero-video-dialog';
 import AnimatedShinyText from './ui/animated-shiny-text';
 import AnimatedGradientText from './ui/animated-gradient-text';
 import { cn } from '@/lib/utils';
+import Meteors from './ui/meteors';
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -28,6 +29,7 @@ const Hero = () => {
 
   return (
     <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-20  lg:pt-32 bg-transparent">
+      <Meteors number={50} />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
