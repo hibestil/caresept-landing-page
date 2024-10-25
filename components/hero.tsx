@@ -91,10 +91,10 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <div className="w-full flex flex-col items-center justify-center mt-10 lg:mt-16">
+        <div className="w-full flex flex-col items-center justify-center mt-10 lg:mt-16 mb-8">
           <h4 className="text-primary/70 font-semibold mb-5">See a real demo to Visualise</h4>
           <HeroVideoDialog
-            className="dark:hidden block lg:max-w-[70%]"
+            className="dark:hidden block lg:max-w-[70%] shadow-2xl z-40 shadow-primary"
             animationStyle="from-center"
             videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
             thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
