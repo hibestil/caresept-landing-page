@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { motion, useAnimation, AnimatePresence, MotionValue } from 'framer-motion';
+import { useEffect } from 'react';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiDatabase, FiSliders, FiLock, FiMessageSquare, FiCpu } from 'react-icons/fi';
 
@@ -126,20 +126,6 @@ const FeatureCard = ({ feature, index }: any) => {
 };
 
 export default function FeatureCards() {
-  const [activeTab, setActiveTab] = useState(0);
-  const tabsRef = useRef(null);
-
-  useEffect(() => {
-    if (tabsRef.current) {
-      const activeTabElement = tabsRef.current.children[activeTab];
-      activeTabElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
-    }
-  }, [activeTab]);
-
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 w-full">
       <div className="container mx-auto px-4">
@@ -155,25 +141,6 @@ export default function FeatureCards() {
           </p>
         </motion.div>
 
-        {/* Mobile Tabs */}
-        <div className="md:hidden mb-8">
-          <div ref={tabsRef} className="flex overflow-x-auto space-x-4 pb-2 scrollbar-hide">
-            {features.map((feature, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className={`flex-shrink-0 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                  activeTab === index
-                    ? 'bg-gradient-to-r from-primary to-primary/80 text-white shadow-lg shadow-primary/30'
-                    : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
-                }`}
-              >
-                {feature.title}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Feature Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
@@ -184,7 +151,7 @@ export default function FeatureCards() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5 }}
-                className={index !== activeTab ? 'hidden md:block' : ''}
+                className={''}
               >
                 <FeatureCard feature={feature} index={index} />
               </motion.div>

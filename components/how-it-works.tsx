@@ -1,7 +1,6 @@
 import React from 'react';
 import CardComponent, { CardComponentProps } from './card-component';
-import { Database, Monitor, Settings2, Zap } from 'lucide-react';
-import Image from 'next/image';
+import { Database, Monitor, Settings2, Sparkles, Zap } from 'lucide-react';
 import { PersonIcon } from '@radix-ui/react-icons';
 
 const cardData: CardComponentProps[] = [
@@ -62,7 +61,35 @@ const cardData: CardComponentProps[] = [
     isImageLeft: true,
   },
   {
-    title: 'Step 3: Enhance Human Interaction',
+    title: 'Step 3: Set Up Your AI Agents',
+    points: [
+      {
+        subtitle: 'Intelligent Automation',
+        description: [
+          {
+            description:
+              'Set up AI agents to handle routine tasks, freeing up your team for more strategic work.',
+          },
+        ],
+        icon: <PersonIcon />,
+      },
+      {
+        subtitle: 'Customizable',
+        description: [
+          {
+            description:
+              'Customize your AI agents to fit your business needs, from simple chatbots to complex decision-making systems.',
+          },
+        ],
+        icon: <Sparkles />,
+      },
+    ],
+    image: '/workflow.jpg', // Replace with appropriate image path
+    color: '',
+    isImageLeft: false,
+  },
+  {
+    title: 'Step 4: Enhance Human Interaction',
     points: [
       {
         subtitle: 'Seamless Handoffs',
@@ -87,7 +114,7 @@ const cardData: CardComponentProps[] = [
     ],
     image: '/c3.jpg', // Replace with appropriate image path
     color: '',
-    isImageLeft: false,
+    isImageLeft: true,
   },
 ];
 

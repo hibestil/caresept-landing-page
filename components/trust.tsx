@@ -55,27 +55,11 @@ const testimonials = [
     rating: 5,
     featured: false,
   },
-  {
-    id: 7,
-    name: 'Emily Brown',
-    role: 'Startup Founder',
-    content:
-      'The granular access control features give us peace of mind. We can securely share data with our employees, knowing that sensitive information is protected.',
-    rating: 5,
-    featured: false,
-  },
-  {
-    id: 8,
-    name: 'Robert Martinez',
-    role: 'Enterprise Client',
-    content: 'Our customer engagement has improved dramatically since adopting Caresept.',
-    featured: true,
-  },
 ];
 
 const SocialProofGrid = () => {
   return (
-    <div className="w-screen mx-auto px-10 text-sm mt-12 ">
+    <div className="w-screen mx-auto px-10 text-sm my-20 ">
       <div className="">
         <h2 className="text-3xl font-bold text-center mb-8 primary-text">
           What Our Customers Say About Us
@@ -84,14 +68,14 @@ const SocialProofGrid = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
         {testimonials.map((testimonial, index) => {
           // Calculate if this card should be featured (taller)
-          const isFeatured = index === 0 || index === 7;
+          const isFeatured = index === 0 || index === 5;
 
           return (
             <Card
               key={testimonial.id}
               className={`
                 flex flex-col
-                ${isFeatured ? 'row-span-2 bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400 text-white' : ''}
+                ${isFeatured ? 'bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400 text-white' : ''}
                 transition-transform duration-300 hover:scale-105
               `}
             >
