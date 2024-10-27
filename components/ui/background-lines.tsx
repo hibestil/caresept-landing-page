@@ -17,7 +17,9 @@ export const BackgroundBeams = ({
   };
 }) => {
   return (
-    <div className={cn('h-[20rem] md:h-screen w-full bg-black relative overflow-hidden', className)}>
+    <div
+      className={cn('h-[20rem] md:h-screen w-full bg-black relative overflow-hidden', className)}
+    >
       <SparklingBeams beamOptions={beamOptions} />
       {children}
     </div>
@@ -32,7 +34,10 @@ const SparklingBeams = ({
     beamCount?: number;
   };
 }) => {
-  const paths = useMemo(() => generateRandomPaths(beamOptions?.beamCount || 20), [beamOptions?.beamCount]);
+  const paths = useMemo(
+    () => generateRandomPaths(beamOptions?.beamCount || 20),
+    [beamOptions?.beamCount]
+  );
 
   return (
     <motion.svg
@@ -71,19 +76,19 @@ const SparklingBeams = ({
           transition={{
             pathLength: {
               duration: beamOptions?.duration || 3,
-              ease: "easeInOut",
+              ease: 'easeInOut',
               repeat: Infinity,
-              repeatType: "loop",
-              repeatDelay: Math.random() * 2
+              repeatType: 'loop',
+              repeatDelay: Math.random() * 2,
             },
             opacity: {
               duration: beamOptions?.duration || 3,
-              ease: "easeInOut",
+              ease: 'easeInOut',
               repeat: Infinity,
-              repeatType: "loop",
+              repeatType: 'loop',
               repeatDelay: Math.random() * 2,
-              times: [0, 0.5, 1]
-            }
+              times: [0, 0.5, 1],
+            },
           }}
         />
       ))}
@@ -102,7 +107,9 @@ function generateRandomPaths(count: number): string[] {
     const controlY1 = Math.random() * 900;
     const controlX2 = Math.random() * 1440;
     const controlY2 = Math.random() * 900;
-    paths.push(`M${startX},${startY} C${controlX1},${controlY1} ${controlX2},${controlY2} ${endX},${endY}`);
+    paths.push(
+      `M${startX},${startY} C${controlX1},${controlY1} ${controlX2},${controlY2} ${endX},${endY}`
+    );
   }
   return paths;
 }

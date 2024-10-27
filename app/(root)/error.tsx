@@ -1,7 +1,7 @@
 'use client';
 
-import { AlertCircle, Home, RefreshCw } from "lucide-react";
-import React from "react";
+import { AlertCircle, Home, RefreshCw } from 'lucide-react';
+import React from 'react';
 
 /* eslint-disable react/no-unescaped-entities */
 const ErrorPage = ({ error, reset }: { error: Error; reset: () => void }) => {

@@ -16,7 +16,6 @@ import WorkflowBuilder from '@/components/workflow';
 import FeatureCards from './test/page';
 import SecuritySection from '@/components/security';
 
-
 export default function Home() {
   return (
     <main className="min-h-screen w-screen flex flex-col">

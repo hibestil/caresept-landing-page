@@ -1,9 +1,7 @@
 import React from 'react';
 
 function Experts() {
-  return (
-    <div>Experts</div>
-  )
+  return <div>Experts</div>;
 }
 
-export default Experts
+export default Experts;

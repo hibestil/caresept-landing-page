@@ -90,7 +90,7 @@ const FAQSection = () => {
         ))}
       </Accordion>
 
-      <h6 className='mt-7 text-sm'>
+      <h6 className="mt-7 text-sm">
         <strong>Have more questions?</strong> Feel free to reach out to us at{' '}
         <Link href={'mailto:support@caresept.com'} className="text-primary font-semibold">
           support@caresept.com

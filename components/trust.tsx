@@ -68,8 +68,7 @@ const testimonials = [
     id: 8,
     name: 'Robert Martinez',
     role: 'Enterprise Client',
-    content:
-      'Our customer engagement has improved dramatically since adopting Caresept.',
+    content: 'Our customer engagement has improved dramatically since adopting Caresept.',
     featured: true,
   },
 ];
@@ -77,8 +76,10 @@ const testimonials = [
 const SocialProofGrid = () => {
   return (
     <div className="w-screen mx-auto px-10 text-sm mt-12 ">
-      <div className=''>
-        <h2 className="text-3xl font-bold text-center mb-8 primary-text">What Our Customers Say About Us</h2>
+      <div className="">
+        <h2 className="text-3xl font-bold text-center mb-8 primary-text">
+          What Our Customers Say About Us
+        </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
         {testimonials.map((testimonial, index) => {

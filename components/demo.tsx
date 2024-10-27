@@ -76,9 +76,7 @@ export default function Demo() {
 
   return (
     <section className=" md:px-4 pb-12">
-      <div className='w-screen bg-gradient-to-b from-primary/50 to-white min-h-[100px]'>
-
-      </div>
+      <div className="w-screen bg-gradient-to-b from-primary/50 to-white min-h-[100px]"></div>
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
         <div className="absolute inset-0 flex items-center justify-center">
           {/* Main center gradient */}
