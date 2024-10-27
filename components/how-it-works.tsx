@@ -62,7 +62,7 @@ const cardData: CardComponentProps[] = [
     isImageLeft: true,
   },
   {
-    title: 'Step 4: Enhance Human Interaction',
+    title: 'Step 3: Enhance Human Interaction',
     points: [
       {
         subtitle: 'Seamless Handoffs',

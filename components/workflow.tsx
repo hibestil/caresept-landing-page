@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import {
   PlusCircle,
   ArrowRight,
-  Workflow,
   Bot,
   Mail,
   Database,
@@ -43,8 +42,8 @@ const WorkflowBuilder = () => {
   };
 
   return (
-    <section className="w-full flex flex-col md:flex-row  items-center justify-around lg:px-10 bg-gradient-to-br from-sky-100 via-blue-100 to-blue-300 lg:py-20 gap-3">
-      <div className="w-full px-6 md:px-0">
+    <section className="w-full flex flex-col md:flex-row  items-center justify-around lg:px-10 bg-gradient-to-br from-blue-600  to-blue-500 lg:py-20 gap-1">
+      <div className="w-full px-4 md:px-0">
         <Image
           src="/workflow.jpg"
           alt="Workflow Automation"
@@ -55,8 +54,12 @@ const WorkflowBuilder = () => {
       </div>
       <div className="w-full m-0 px-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2 primary-text">Build AI Workflows in Minutes</h2>
-          <p className="text-gray-600">Drag and drop components to create powerful automation</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-slate-50 to-slate-100 text-transparent bg-clip-text">
+            Build AI Workflows in Minutes
+          </h2>
+          <p className="text-md text-slate-200">
+            Drag and drop components to create powerful automation
+          </p>
         </div>
 
         <Card className="mb-8 bg-gray-50">

@@ -16,9 +16,9 @@ function NewsLetter() {
         <input
           type="email"
           placeholder="Enter your email"
-          className="w-[90%] md:w-1/2 px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          className="w-[90%] md:w-1/2 px-4 py-2 border border-gray-200  focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent rounded-l-md"
         />
-        <button className="bg-primary text-white px-6 py-2 rounded-lg mt-4">Subscribe</button>
+        <button className="bg-primary text-white px-6 py-2 rounded-r-md">Subscribe</button>
       </div>
     </section>
   );

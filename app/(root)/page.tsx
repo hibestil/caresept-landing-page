@@ -14,6 +14,7 @@ import GridCards from '@/components/ui/grid-cards';
 import Integration from '@/components/ui/integration';
 import WorkflowBuilder from '@/components/workflow';
 import FeatureCards from './test/page';
+import SecuritySection from '@/components/security';
 
 
 export default function Home() {
@@ -21,12 +22,13 @@ export default function Home() {
     <main className="min-h-screen w-screen flex flex-col">
       <Hero />
       <FeatureCards />
-      {/* <HowItWorks /> */}
-      {/* <WorkflowBuilder /> */}
+      <HowItWorks />
+      <WorkflowBuilder />
       <Integration />
       <Chatbot />
       {/* <GridCards /> */}
       <TrustIndicators />
+      <SecuritySection />
       <Action />
       <FAQSection />
       <NewsLetter />
