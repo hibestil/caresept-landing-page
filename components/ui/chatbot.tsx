@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { ChatBubble } from './chat-bubble';
 import Image from 'next/image';
 import ShineBorder from './shine-border';
+import TextReveal from "@/components/ui/text-reveal";
 
 type Message = {
   message: string;
@@ -123,11 +124,10 @@ const EnhancedChatbot = () => {
         }}
         className="text-center mb-12 mx-5 lg:mx-10"
       >
-        <ShineBorder className="shine w-full">
-          <h2 className="text-4xl font-bold primary-text w-full">
-            Create chatbots that help your customers just like you
-          </h2>
-        </ShineBorder>
+        <TextReveal
+         text='Chatbot that helps your customers just like you'
+         className='text-4xl font-bold primary-text'
+        />
       </motion.div>
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Main content container */}
@@ -150,7 +150,7 @@ const EnhancedChatbot = () => {
                 backgroundRepeat: 'no-repeat',
               }}
             >
-              <div className="flex flex-col gap-4 h-[600px] overflow-y-auto custom-scrollbar lg:w-[50%] backdrop-blur-md bg-transparent">
+              <div className="flex flex-col gap-4 h-[600px] overflow-y-auto custom-scrollbar lg:w-[50%] backdrop-blur-md bg-transparent py-6">
                 {messages.map((msg, index) => (
                   <ChatBubble key={index} message={msg.message} isBot={msg.isBot} delay={0.3} />
                 ))}

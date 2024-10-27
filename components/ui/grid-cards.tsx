@@ -109,6 +109,35 @@ const GridCards = () => {
       integrations: 'iOS & Android',
       imagePath: '/c4.jpg',
     },
+    {
+      id: 3,
+      title: 'Smart Notifications',
+      description:
+        'Stay informed with context-aware notifications. Our AI prioritizes alerts based on importance and user behavior patterns.',
+      badge: 'Communication',
+      rating: '90% Engagement',
+      features: [
+        'Priority-based alerts',
+        'Multi-channel delivery',
+        'Smart scheduling',
+        'Behavioral adaptation',
+      ],
+      icon: Bell,
+      integrations: '10+ Channels',
+      imagePath: '/c3.jpg',
+    },
+    {
+      id: 4,
+      title: 'Mobile CRM Suite',
+      description:
+        'Access your entire CRM system on the go. Our mobile app provides seamless integration with all features and real-time synchronization.',
+      badge: 'Mobile',
+      rating: '4.8 App Rating',
+      features: ['Offline capabilities', 'Secure access', 'Real-time sync', 'Native experience'],
+      icon: Smartphone,
+      integrations: 'iOS & Android',
+      imagePath: '/c4.jpg',
+    },
   ];
 
   const handleTouchStart = (e: any) => {
@@ -214,7 +243,7 @@ const GridCards = () => {
   );
 
   return (
-    <section className="w-screen">
+    <section className="w-screen bg-gradient-to-b">
       <div className="max-w-6xl mx-auto p-6 space-y-6">
         {/* Mobile View */}
         <div className="block md:hidden">

@@ -1,37 +1,42 @@
 import Link from 'next/link';
-import { LinkedInLogoIcon, TwitterLogoIcon, InstagramLogoIcon } from '@radix-ui/react-icons';
+import { FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { FaSquareXTwitter, FaFacebook } from 'react-icons/fa6';
+import { AiFillYoutube } from 'react-icons/ai';
 import Image from 'next/image';
-import { ModeToggle } from './ui/mode-toggle';
+import { Facebook, Youtube } from 'lucide-react';
+import { LanguageSwitcher } from './language-switcher';
+import { Input } from './ui/input';
+import { Button } from './ui/button';
 
 const Footer = () => {
   return (
     <footer className="w-full">
       <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
-          <div>
+          <div className="flex flex-col items-start justify-center">
             <Image src={'/caresept-e.svg'} alt="image" width={100} height={100} />
           </div>
           <div>
-            <h3 className="text-foreground mb-4 text-lg font-semibold">Product</h3>
+            <h3 className="text-foreground mb-4 text-lg font-semibold">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-foreground/60 hover:text-foreground">
-                  Features
+                <Link href="/about" className="text-foreground/60 hover:text-foreground">
+                  About
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-foreground/60 hover:text-foreground">
-                  Pricing
+                  Product
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground/60 hover:text-foreground">
-                  Integrations
+                <Link href="resources" className="text-foreground/60 hover:text-foreground">
+                  Resources
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground/60 hover:text-foreground">
-                  API
+                <Link href="/support" className="text-foreground/60 hover:text-foreground">
+                  Support
                 </Link>
               </li>
             </ul>
@@ -84,14 +89,33 @@ const Footer = () => {
           <div>
             <h3 className="text-foreground mb-4 text-lg font-semibold">Connect</h3>
             <div className="flex space-x-4">
-              <Link href="#" className="text-foreground/60 hover:text-foreground">
-                <TwitterLogoIcon fontSize="large" />
+              <Link
+                href="https://x.com/caresept"
+                className="text-foreground/60 hover:text-foreground"
+                target="blank"
+              >
+                <FaSquareXTwitter fontSize="large" />
               </Link>
-              <Link href="#" className="text-foreground/60 hover:text-foreground">
-                <LinkedInLogoIcon fontSize="large" />
+              <Link
+                href="https://www.linkedin.com/company/caresept/"
+                className="text-foreground/60 hover:text-foreground"
+                target="blank"
+              >
+                <FaLinkedin fontSize="large" />
               </Link>
-              <Link href="#" className="text-foreground/60 hover:text-foreground">
-                <InstagramLogoIcon fontSize="large" />
+              <Link
+                href="https://fb.com/caresept"
+                className="text-foreground/60 hover:text-foreground"
+                target="blank"
+              >
+                <FaFacebook fontSize="large" />
+              </Link>
+              <Link
+                href="http://www.youtube.com/@caresept"
+                className="text-foreground/60 hover:text-foreground"
+                target="blank"
+              >
+                <FaYoutube fontSize="large" />
               </Link>
             </div>
           </div>
@@ -101,6 +125,7 @@ const Footer = () => {
             &copy; 2024 Caresept. All rights reserved.
           </p>
         </div>
+        <LanguageSwitcher />
       </div>
     </footer>
   );

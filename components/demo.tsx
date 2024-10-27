@@ -75,7 +75,10 @@ export default function Demo() {
   });
 
   return (
-    <section className=" md:px-4 py-12">
+    <section className=" md:px-4 pb-12">
+      <div className='w-screen bg-gradient-to-b from-primary/50 to-white min-h-[100px]'>
+
+      </div>
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
         <div className="absolute inset-0 flex items-center justify-center">
           {/* Main center gradient */}
@@ -90,7 +93,7 @@ export default function Demo() {
         <section ref={ref} className="py-20 relative">
           <div className="mb-12 text-center">
             <Badge className="mb-4" variant="secondary">
-              Product Demo
+              Why to choose Caresept ?
             </Badge>
             <h2 className="mb-4 text-4xl font-bold tracking-tight primary-text">
               Experience the Demo which is more real than Reality

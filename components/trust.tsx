@@ -1,166 +1,122 @@
 'use client';
 
-import { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import {
-  MessageSquare,
-  BarChart2,
-  Users,
-  ArrowRight,
-  Star,
-  Shield,
-  Clock,
-  Zap,
-  CheckCircle,
-  Award,
-} from 'lucide-react';
-import Image from 'next/image';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-import ShineBorder from './ui/shine-border';
+import React from 'react';
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
-const TrustIndicators = () => {
-  const indicators = [
-    {
-      icon: Shield,
-      text: 'Enterprise-grade security',
-      description: 'SOC2 Type II certified with end-to-end encryption',
-      stat: '256-bit',
-      color: 'text-primary',
-    },
-    {
-      icon: Clock,
-      text: '99.9% Uptime SLA',
-      description: 'Continuous monitoring with instant alerts',
-      stat: '99.9%',
-      color: 'text-primary',
-    },
-    {
-      icon: Star,
-      text: 'Customer satisfaction',
-      description: 'Based on 10,000+ customer reviews',
-      stat: '4.9/5',
-      color: 'text-blue-600',
-    },
-    {
-      icon: Zap,
-      text: 'Real-time updates',
-      description: 'Average response time under 100ms',
-      stat: '<100ms',
-      color: 'text-blue-600',
-    },
-    {
-      icon: Users,
-      text: 'Active users',
-      description: 'Trusted by leading companies worldwide',
-      stat: '1M+',
-      color: 'text-pink-600',
-    },
-    {
-      icon: Award,
-      text: 'Industry awards',
-      description: 'Recognized market leader since 2020',
-      stat: '50+',
-      color: 'text-pink-600',
-    },
-  ];
+const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah Johnson',
+    role: 'CEO, TechStart',
+    content:
+      "Caresept's AI agents have revolutionized our customer service. Clients receive instant, personalized responses 24/7, significantly reducing our team's manual workload.",
+    featured: true,
+  },
+  {
+    id: 2,
+    name: 'Mike Peters',
+    role: 'Product Manager',
+    content:
+      "The no-code data module builder allowed us to tailor the system to our exact needs without any technical expertise. It's been a game-changer for our operations.",
+    featured: false,
+  },
+  {
+    id: 3,
+    name: 'Lisa Chen',
+    role: 'Developer',
+    content:
+      'ntegrating all our communication channels into one platform has streamlined our customer interactions. Managing messages from WhatsApp, Facebook, and Instagram is now seamless.',
+    featured: false,
+  },
+  {
+    id: 4,
+    name: 'David Wilson',
+    role: 'Marketing Director',
+    content:
+      "With Caresept's AI Agent Workers, we've automated repetitive tasks, freeing up our team to focus on strategic initiatives. The efficiency gains are remarkable",
+    featured: false,
+  },
+  {
+    id: 5,
+    name: 'Emily Brown',
+    role: 'Startup Founder',
+    content:
+      'The granular access control features give us peace of mind. We can securely share data with our employees, knowing that sensitive information is protected.',
+    rating: 5,
+    featured: false,
+  },
+  {
+    id: 6,
+    name: 'Emily Brown',
+    role: 'Startup Founder',
+    content:
+      'The granular access control features give us peace of mind. We can securely share data with our employees, knowing that sensitive information is protected.',
+    rating: 5,
+    featured: false,
+  },
+  {
+    id: 7,
+    name: 'Emily Brown',
+    role: 'Startup Founder',
+    content:
+      'The granular access control features give us peace of mind. We can securely share data with our employees, knowing that sensitive information is protected.',
+    rating: 5,
+    featured: false,
+  },
+  {
+    id: 8,
+    name: 'Robert Martinez',
+    role: 'Enterprise Client',
+    content:
+      'Our customer engagement has improved dramatically since adopting Caresept.',
+    featured: true,
+  },
+];
 
+const SocialProofGrid = () => {
   return (
-    <TooltipProvider>
-      <div className="w-full py-8 lg:mt-10">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-4">
-            <ShineBorder className="shine w-full" color={'blue'}>
-              <h3 className="text-3xl font-bold mb-2  primary-text">Trusted by Industry Leaders</h3>
-            </ShineBorder>
-            <p className="text-gray-700/60">Join thousands of companies building with confidence</p>
-          </div>
-
-          <div className="flex items-center justify-around mb-4">
-            <Image
-              src="/image1.png"
-              width={140}
-              height={100}
-              alt="Brand 1"
-              className="w-[90px] lg:w-[140px]"
-            />
-            <Image
-              src="/image2.png"
-              width={140}
-              height={100}
-              alt="Brand 2"
-              className="w-[90px] lg:w-[140px]"
-            />
-            <Image
-              src="/image3.png"
-              width={120}
-              height={100}
-              alt="Brand 3"
-              className="w-[90px] lg:w-[140px]"
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {indicators.map((item, index) => (
-              <Tooltip key={index}>
-                <TooltipTrigger>
-                  <div
-                    className="group relative bg-white rounded-xl p-4 transition-all duration-300 
-                      hover:shadow-lg hover:-translate-y-1 border border-gray-100 hover:border-gray-200"
-                  >
-                    <div className="flex items-center gap-4">
-                      {/* Icon with gradient background */}
-                      <div
-                        className={`rounded-lg p-2 bg-gradient-to-br from-${item.color.split('-')[1]}-50 to-${item.color.split('-')[1]}-100`}
-                      >
-                        <item.icon
-                          className={`size-6 ${item.color} transition-transform duration-300 group-hover:scale-110`}
-                        />
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between">
-                          <h4 className="font-medium text-gray-900">{item.text}</h4>
-                          <Badge
-                            variant="secondary"
-                            className={`${item.color} bg-opacity-10 font-semibold`}
-                          >
-                            {item.stat}
-                          </Badge>
-                        </div>
-                        <p className="text-sm text-gray-500 mt-1">{item.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Decorative gradient line */}
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent 
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    />
-                  </div>
-                </TooltipTrigger>
-                <TooltipContent className="primary-gradient">
-                  <p className="text-sm">{item.description}</p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
-          </div>
-
-          {/* Bottom certification badges */}
-          <div className="grid grid-cols-2 md:grid-cols-4 justify-center items-center gap-6 mt-8">
-            {['SOC2', 'ISO 27001', 'GDPR', 'HIPAA'].map((cert, index) => (
-              <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
-                <CheckCircle className="size-4 text-primary" />
-                <span>{cert} Compliant</span>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div className="w-screen mx-auto px-10 text-sm mt-12 ">
+      <div className=''>
+        <h2 className="text-3xl font-bold text-center mb-8 primary-text">What Our Customers Say About Us</h2>
       </div>
-    </TooltipProvider>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
+        {testimonials.map((testimonial, index) => {
+          // Calculate if this card should be featured (taller)
+          const isFeatured = index === 0 || index === 7;
+
+          return (
+            <Card
+              key={testimonial.id}
+              className={`
+                flex flex-col
+                ${isFeatured ? 'row-span-2 bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400 text-white' : ''}
+                transition-transform duration-300 hover:scale-105
+              `}
+            >
+              <CardHeader className="flex-none">
+                <p className="text-lg font-semibold">{testimonial.name}</p>
+                <p className={cn('text-sm text-gray-500', isFeatured ? 'text-white/70' : '')}>
+                  {testimonial.role}
+                </p>
+              </CardHeader>
+
+              <CardContent className="flex-grow">
+                <p
+                  className={`
+                  text-gray-700
+                  ${isFeatured ? 'text-base text-white/90' : 'text-sm'}
+                `}
+                >
+                  &apos;{testimonial.content}&apos;
+                </p>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
-export default TrustIndicators;
+export default SocialProofGrid;

@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight, ArrowRightIcon, ChevronRight, Sparkles } from 'lucide-react';
-
+import { ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
+import AnimatedGridPattern from '@/components/ui/animated-grid-pattern';
 import { Cover } from '@/components/ui/cover';
 import HeroVideoDialog from './ui/hero-video-dialog';
-import AnimatedShinyText from './ui/animated-shiny-text';
 import AnimatedGradientText from './ui/animated-gradient-text';
 import { cn } from '@/lib/utils';
 import Meteors from './ui/meteors';
+import Link from 'next/link';
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -28,8 +28,18 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-20  lg:pt-32 bg-transparent">
-      <Meteors number={10} />
+    <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-20  lg:pt-32 bg-transparent pb-10">
+      {/* <Meteors number={10} /> */}
+      <AnimatedGridPattern
+        numSquares={80}
+        maxOpacity={0.1}
+        duration={3}
+        repeatDelay={1}
+        className={cn(
+          '[mask-image:radial-gradient(500px_circle_at_center,blue, transparent)]',
+          'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
+        )}
+      />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -44,7 +54,7 @@ const Hero = () => {
                 `inline animate-gradient bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
               )}
             >
-              Launching Caresept 1.0
+              Launching Caresept AI ✨
             </span>
             <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
           </AnimatedGradientText>
@@ -56,7 +66,8 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-3xl md:text-4xl lg:text-7xl"
           >
-            <Cover className="">Seamless</Cover> Customer Relationship Management
+            <Cover className="">Unlock</Cover> Customer Engagement with Customizable AI Agent
+            Workers
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -64,8 +75,8 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-gray-700 sm:text-md md:text-xl"
           >
-            Caresept revolutionizes CRM with cutting-edge AI, intelligent chatbots, and seamless
-            workflow automation. Experience the future of customer management today.
+            Automate interactions and streamline workflows with Caresept&apos;s customizable,
+            no-code CRM platform.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,17 +88,17 @@ const Hero = () => {
               size="lg"
               className="group w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-lg font-semibold text-white transition-all hover:from-blue-600 hover:to-blue-700 sm:w-auto"
             >
-              Get Started
+              Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
+            <Link
+              href="/contact"
               className="w-full bg-white text-lg font-semibold text-gray-800 shadow-md transition-all hover:bg-gray-50 sm:w-auto"
-              onClick={() => setIsVideoPlaying(true)}
             >
-              Contact Sales
-            </Button>
+              <Button variant="outline" size="lg">
+                Contact Sales
+              </Button>
+            </Link>
           </motion.div>
         </div>
 

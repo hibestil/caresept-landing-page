@@ -19,7 +19,7 @@ export function ChatBubble({ message, isBot = false, delay = 0 }: ChatBubbleProp
       transition={{ duration: 0.5, delay }}
       className={cn(
         'flex items-start gap-2.5 w-full max-w-md',
-        isBot ? 'self-start' : 'self-end flex-row-reverse'
+        isBot ? 'self-start pl-4' : 'self-end flex-row-reverse pr-4'
       )}
     >
       {isBot && (

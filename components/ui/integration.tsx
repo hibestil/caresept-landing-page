@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Card } from './card';
+import { Card, CardContent } from './card';
 import OrbitingCircles from './orbiting-circles';
 import SalesForce from '@/public/icons/salesforce.svg';
 import Outlook from '@/public/icons/outlook.svg';
@@ -15,21 +15,76 @@ import Slack from '@/public/icons/slack.svg';
 import ShineBorder from './shine-border';
 import Caresept from '@/public/caresept-e.svg';
 import { useTheme } from 'next-themes';
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Badge } from './badge';
+import { LinkIcon, Settings2, Sparkles, Zap } from 'lucide-react';
 
 export default function Integration() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const features = [
+    { icon: <Zap className="w-5 h-5" />, text: 'Lightning-fast setup' },
+    { icon: <LinkIcon className="w-5 h-5" />, text: 'Seamless integration' },
+    { icon: <Settings2 className="w-5 h-5" />, text: 'Easy configuration' },
+    { icon: <Sparkles className="w-5 h-5" />, text: 'Smart automation' },
+  ];
+
   return (
-    <section className="w-full flex flex-col gap-3 md:gap-5 items-around justify-center my-10 ">
-      <div className="w-full h-full flex items-center justify-center  px-3 lg:px-16">
-        <ShineBorder
-          className="text-center text-2xl font-bold capitalize w-full flex items-center justify-center"
-          color={'blue'}
+    <section className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 py-12">
+      <div className="container mx-auto flex flex-col md:flex-row gap-8 md:gap-12 items-center justify-between px-4">
+        {/* Left Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full md:w-1/2 space-y-6"
         >
-          <h1 className="primary-text">Integrate with your favorite tools in seconds</h1>
-        </ShineBorder>
-      </div>
-      <div className="w-full h-[550px]">
-        <Orbit />
+          <Badge variant="secondary" className="text-sm mb-4 hover:bg-primary/20 transition-colors">
+            Integration Made Simple
+          </Badge>
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+            Integrate with your favorite tools in seconds
+          </h1>
+
+          <p className="text-lg text-muted-foreground">
+            Connect and automate your workflow with our seamless integration system.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card
+                  className="hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <CardContent className="flex items-center gap-3 p-4">
+                    <div className="text-primary">{feature.icon}</div>
+                    <p className="font-medium">{feature.text}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right Content - Orbit Component */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="w-full md:w-1/2 h-[550px] relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-full blur-3xl animate-pulse" />
+          <Orbit />
+        </motion.div>
       </div>
     </section>
   );

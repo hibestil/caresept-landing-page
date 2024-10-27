@@ -78,6 +78,15 @@ body {
   }
 }
 
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
 @layer components {
   .primary-gradient {
     @apply bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700;
