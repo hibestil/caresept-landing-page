@@ -4,7 +4,7 @@ import { Home, RefreshCw } from 'lucide-react';
 
 const NotFoundPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-around bg-gradient-to-b from-white to-gray-50 p-4">
       <div className="text-center space-y-6 max-w-lg">
         <div className="relative">
           <h1 className="text-9xl font-bold text-gray-200">404</h1>
@@ -27,6 +27,12 @@ const NotFoundPage = () => {
             Mission Control
           </a>
         </div>
+      </div>
+
+      <div>
+        <p className="text-gray-600 text-sm">
+          If you think this is an error, please contact the administrator.
+        </p>
       </div>
     </div>
   );
