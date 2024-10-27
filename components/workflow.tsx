@@ -13,7 +13,6 @@ import {
   Smile,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 const WorkflowBuilder = () => {
@@ -45,14 +44,16 @@ const WorkflowBuilder = () => {
 
   return (
     <section className="w-full flex flex-col md:flex-row  items-center justify-around lg:px-10 bg-gradient-to-br from-sky-100 via-blue-100 to-blue-300 lg:py-20 gap-3">
-      <Image
-        src="/workflow.jpg"
-        alt="Workflow Automation"
-        width={500}
-        height={500}
-        className="md:block md:rounded-l-xl"
-      />
-      <div className="w-full m-0 ">
+      <div className="w-full px-6 md:px-0">
+        <Image
+          src="/workflow.jpg"
+          alt="Workflow Automation"
+          width={500}
+          height={500}
+          className="md:block md:rounded-l-xl "
+        />
+      </div>
+      <div className="w-full m-0 px-6">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold mb-2 primary-text">Build AI Workflows in Minutes</h2>
           <p className="text-gray-600">Drag and drop components to create powerful automation</p>

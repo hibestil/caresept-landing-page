@@ -97,14 +97,14 @@ function CardComponent({ title, points, image, color, isImageLeft = true }: Card
       animate={inView ? 'visible' : 'hidden'}
       variants={containerVariants}
       className={cn(
-        'w-screen flex flex-col md:flex-row items-center justify-center p-8 gap-8 lg:py-16',
+        'w-screen flex flex-col md:flex-row items-center justify-center p-8 gap-8 lg:py-20',
         color
       )}
     >
       <motion.div
         className={cn('w-full md:w-1/2 ', imageOrderClass)}
         variants={imageVariants}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.01 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <Image
@@ -120,7 +120,10 @@ function CardComponent({ title, points, image, color, isImageLeft = true }: Card
         className={cn('w-full md:w-1/2 space-y-6', contentOrderClass)}
         variants={contentVariants}
       >
-        <motion.h1 className="text-4xl font-bold mb-8" variants={itemVariants}>
+        <motion.h1
+          className="text-4xl font-bold mb-8 bg-gradient-to-r from-white/90 via-slate-50/90 to-slate-200/90 text-transparent bg-clip-text"
+          variants={itemVariants}
+        >
           {title}
         </motion.h1>
 
@@ -132,7 +135,7 @@ function CardComponent({ title, points, image, color, isImageLeft = true }: Card
               whileHover={{ scale: 1.02 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
-              className="p-4 rounded-lg bg-white/90 backdrop-blur-sm shadow-lg transition-all duration-300"
+              className="p-4 rounded-lg text-white backdrop-blur-sm transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-2">
                 <motion.div

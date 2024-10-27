@@ -1,6 +1,6 @@
 import React from 'react';
 import CardComponent, { CardComponentProps } from './card-component';
-import { Database, LucideSmilePlus, Monitor, Settings2, Sparkles, Zap } from 'lucide-react';
+import { Database, Monitor, Settings2, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { PersonIcon } from '@radix-ui/react-icons';
 
@@ -29,8 +29,8 @@ const cardData: CardComponentProps[] = [
         icon: <Monitor />,
       },
     ],
-    image: '/c1.jpg', // Replace with appropriate image path
-    color: 'bg-gradient-to-br from-blue-200 to-blue-600',
+    image: '/c5.jpg', // Replace with appropriate image path
+    color: '',
     isImageLeft: false,
   },
   {
@@ -57,37 +57,9 @@ const cardData: CardComponentProps[] = [
         icon: <Zap />,
       },
     ],
-    image: '/c2.jpg', // Replace with appropriate image path
-    color: 'bg-gradient-to-r from-green-500 via-green-300 to-green-200',
+    image: '/c8.jpg', // Replace with appropriate image path
+    color: '',
     isImageLeft: true,
-  },
-  {
-    title: 'Step 3: Deploy AI Agent Workers',
-    points: [
-      {
-        subtitle: 'Empower Customer Engagement',
-        description: [
-          {
-            description:
-              'Train AI agents using our drag-and-drop tools to interact with customers across your chosen channels—WhatsApp, Facebook, Instagram, and live chat.',
-          },
-        ],
-        icon: <Sparkles />,
-      },
-      {
-        subtitle: 'Natural Conversations',
-        description: [
-          {
-            description:
-              'Deploy AI agents that engage customers in human-like interactions, collecting necessary information seamlessly.',
-          },
-        ],
-        icon: <LucideSmilePlus />,
-      },
-    ],
-    image: '/c3.jpg', // Replace with appropriate image path
-    color: 'bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-200',
-    isImageLeft: false,
   },
   {
     title: 'Step 4: Enhance Human Interaction',
@@ -114,16 +86,18 @@ const cardData: CardComponentProps[] = [
       },
     ],
     image: '/c3.jpg', // Replace with appropriate image path
-    color: 'bg-gradient-to-r from-red-300 via-red-100 to-red-50',
-    isImageLeft: true,
+    color: '',
+    isImageLeft: false,
   },
 ];
 
 function HowItWorks() {
   return (
-    <section className="w-screen flex flex-col items-center justify-center">
-      <h1>How It Works ?</h1>
-      <div>
+    <section className="w-full flex flex-col items-center justify-center">
+      <div className="w-full bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 pt-10">
+        <h1 className="text-4xl lg:text-6xl font-bold w-full flex items-center justify-center bg-gradient-to-r from-white/90 via-slate-50/90 to-slate-200/90 text-transparent bg-clip-text">
+          How It Works ?
+        </h1>
         {cardData.map((card, index) => (
           <CardComponent key={index} {...card} />
         ))}

@@ -3,6 +3,7 @@
 import Action from '@/components/action';
 import Demo from '@/components/demo';
 import FAQSection from '@/components/faq';
+import Features from '@/components/features';
 import Hero from '@/components/hero';
 import HowItWorks from '@/components/how-it-works';
 import NewsLetter from '@/components/news-letter';
@@ -12,23 +13,23 @@ import Chatbot from '@/components/ui/chatbot';
 import GridCards from '@/components/ui/grid-cards';
 import Integration from '@/components/ui/integration';
 import WorkflowBuilder from '@/components/workflow';
-import { useLanguage } from '@/hooks/language-provider';
+import FeatureCards from './test/page';
+
 
 export default function Home() {
-  const { t } = useLanguage();
   return (
     <main className="min-h-screen w-screen flex flex-col">
       <Hero />
-      <Demo />
-      <Chatbot />
-      <WorkflowBuilder />
+      <FeatureCards />
+      {/* <HowItWorks /> */}
+      {/* <WorkflowBuilder /> */}
       <Integration />
-      <GridCards />
+      <Chatbot />
+      {/* <GridCards /> */}
       <TrustIndicators />
       <Action />
       <FAQSection />
       <NewsLetter />
-      <HowItWorks />
     </main>
   );
 }

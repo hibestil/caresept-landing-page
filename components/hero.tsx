@@ -9,28 +9,14 @@ import { Cover } from '@/components/ui/cover';
 import HeroVideoDialog from './ui/hero-video-dialog';
 import AnimatedGradientText from './ui/animated-gradient-text';
 import { cn } from '@/lib/utils';
-import Meteors from './ui/meteors';
+import { DotPattern } from '@/components/ui/dot-pattern';
 import Link from 'next/link';
 
 const Hero = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
   return (
     <section className="relative w-screen min-h-screen overflow-clip bg-gradient-to-br pt-20  lg:pt-32 bg-transparent pb-10">
       {/* <Meteors number={10} /> */}
-      <AnimatedGridPattern
+      {/* <AnimatedGridPattern
         numSquares={80}
         maxOpacity={0.1}
         duration={3}
@@ -39,6 +25,9 @@ const Hero = () => {
           '[mask-image:radial-gradient(500px_circle_at_center,blue, transparent)]',
           'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
         )}
+      /> */}
+      <DotPattern
+        className={cn('[mask-image:radial-gradient(700px_circle_at_center,white,transparent)]')}
       />
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div
@@ -95,7 +84,7 @@ const Hero = () => {
               href="/contact"
               className="w-full bg-white text-lg font-semibold text-gray-800 shadow-md transition-all hover:bg-gray-50 sm:w-auto"
             >
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="w-full md:w-auto">
                 Contact Sales
               </Button>
             </Link>
@@ -103,7 +92,9 @@ const Hero = () => {
         </div>
 
         <div className="w-full flex flex-col items-center justify-center mt-10 lg:mt-16 mb-8">
-          <h4 className="text-primary/70 font-semibold mb-5">See a real demo to Visualise</h4>
+          <h4 className="text-primary/70 font-semibold mb-5">
+            Experience the Demo which is more real than Reality
+          </h4>
           <HeroVideoDialog
             className="dark:hidden block lg:max-w-[70%] shadow-2xl z-40 shadow-primary"
             animationStyle="from-center"
