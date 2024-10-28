@@ -99,6 +99,10 @@ body {
     @apply text-center text-2xl font-bold capitalize w-full flex items-center justify-center;
   }
 
+  .masked-icon {
+    @apply object-contain filter grayscale opacity-70 hover:opacity-100;
+  }
+
   @keyframes blob1 {
     0% {
       transform: translate(-100px, -100px) scale(1);
