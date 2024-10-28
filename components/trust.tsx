@@ -1,10 +1,9 @@
 'use client';
 
-import React from 'react';
-import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import Marquee from '@/components/ui/marquee';
 
-const testimonials = [
+const reviews = [
   {
     id: 1,
     name: 'Sarah Johnson',
@@ -46,62 +45,69 @@ const testimonials = [
     rating: 5,
     featured: false,
   },
-  {
-    id: 6,
-    name: 'Emily Brown',
-    role: 'Startup Founder',
-    content:
-      'The granular access control features give us peace of mind. We can securely share data with our employees, knowing that sensitive information is protected.',
-    rating: 5,
-    featured: false,
-  },
 ];
 
-const SocialProofGrid = () => {
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
   return (
-    <div className="w-screen mx-auto px-10 text-sm my-20 ">
-      <div className="">
-        <h2 className="text-3xl font-bold text-center mb-8 primary-text">
-          What Our Customers Say About Us
-        </h2>
+    <figure className={cn('relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4')}>
+      <div className="flex flex-row items-center gap-2">
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-lg font-semibold dark:text-white">{name}</figcaption>
+          <p className="text-sm font-medium dark:text-white/40">{username}</p>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
-        {testimonials.map((testimonial, index) => {
-          // Calculate if this card should be featured (taller)
-          const isFeatured = index === 0 || index === 5;
-
-          return (
-            <Card
-              key={testimonial.id}
-              className={`
-                flex flex-col
-                ${isFeatured ? 'bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400 text-white' : ''}
-                transition-transform duration-300 hover:scale-105
-              `}
-            >
-              <CardHeader className="flex-none">
-                <p className="text-lg font-semibold">{testimonial.name}</p>
-                <p className={cn('text-sm text-gray-500', isFeatured ? 'text-white/70' : '')}>
-                  {testimonial.role}
-                </p>
-              </CardHeader>
-
-              <CardContent className="flex-grow">
-                <p
-                  className={`
-                  text-gray-700
-                  ${isFeatured ? 'text-base text-white/90' : 'text-sm'}
-                `}
-                >
-                  &apos;{testimonial.content}&apos;
-                </p>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-    </div>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
   );
 };
 
-export default SocialProofGrid;
+export function TrustIndicators() {
+  return (
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg mt-20">
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="text-3xl font-extrabold text-primary">Trusted by 1000+ businesses</h2>
+        <p className="mt-4 text-lg text-center dark:text-white/40 mb-10">
+          Here&apos;s what our customers have to say about Caresept
+        </p>
+      </div>
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard
+            key={review.id}
+            img={''}
+            name={review.name}
+            username={review.name}
+            body={review.content}
+          />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard
+            key={review.id}
+            img={''}
+            name={review.name}
+            username={review.name}
+            body={review.content}
+          />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
+  );
+}
